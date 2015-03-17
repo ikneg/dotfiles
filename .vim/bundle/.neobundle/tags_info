@@ -1,7 +1,5 @@
 lightline.vim
-neocomplete.vim
-neosnippet
-neosnippet-snippets
+neocomplcache.vim
 unite.vim
 vim-colors-solarized
 vim-quickhl
