@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =5
 let g:netrw_dirhist_1='/home/genki/.tmux/tmux-powerline'
 let g:netrw_dirhist_2='/home/genki/.tmux/tmux-powerline/themes'
 let g:netrw_dirhist_3='/home/genki/.tmux'
+let g:netrw_dirhist_4='/home/genki/dotfiles/.vim/bundle/neosnippet-snippets/neosnippets'
+let g:netrw_dirhist_5='/home/genki/dotfiles/.tmux/tmux-powerline'

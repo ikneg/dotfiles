@@ -21,14 +21,21 @@ if [ "$TMUX" = "" ]; then
         tmux;
     fi
 fi
-PATH="/usr/local/heroku/bin:$PATH"
 
-# History setting
+# Path settings
+PATH="/usr/local/heroku/bin:$PATH"
+PATH="$HOME/.rbenv/bin:$PATH"
+
+# History settings
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
-# Git
+# Git settings
 export GIT_EDITOR=/usr/bin/vim
+
+# rbenv settings
+eval "$(rbenv init - zsh)"
+export CC=/usr/bin/gcc
