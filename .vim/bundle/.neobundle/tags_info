@@ -1,0 +1,5 @@
+lightline.vim
+neocomplcache.vim
+unite.vim
+vim-colors-solarized
+vim-quickhl
