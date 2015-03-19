@@ -14,6 +14,7 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 't9md/vim-quickhl'
+NeoBundle 'yaml.vim'
 
 call neobundle#end()
 
@@ -42,6 +43,7 @@ let g:lightline = {
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  basic settings
 """"""""""""""""""""""""""""""""""""""""""""""""""
+set ambiwidth=double
 set tabstop=4
 set shiftwidth=4
 set autoindent
@@ -120,3 +122,17 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" yaml
+""""""""""""""""""""""""""""""""""""""""""""""""""
+au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/bundle/yaml.vim/colors/yaml.vim
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-quickhl
+""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:quickhl_manual_enable_at_startup=1
+nmap <Space>m <Plug>(quickhl-manual-this)
+xmap <Space>m <Plug>(quickhl-manual-this)
+nmap <Space>M <Plug>(quickhl-manual-reset)
+xmap <Space>M <Plug>(quickhl-manual-reset)
