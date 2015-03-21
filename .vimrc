@@ -15,6 +15,7 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 't9md/vim-quickhl'
 NeoBundle 'yaml.vim'
+NeoBundle 'slim-template/vim-slim'
 
 call neobundle#end()
 

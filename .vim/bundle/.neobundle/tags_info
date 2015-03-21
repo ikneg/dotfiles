@@ -5,4 +5,5 @@ neosnippet-snippets
 unite.vim
 vim-colors-solarized
 vim-quickhl
+vim-slim
 yaml.vim
