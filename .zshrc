@@ -24,7 +24,7 @@ fi
 
 # Path settings
 PATH="/usr/local/heroku/bin:$PATH"
-PATH="$HOME/.rbenv/bin:$PATH"
+PATH="/usr/local/rbenv:$PATH"
 
 # History settings
 autoload history-search-end
@@ -37,5 +37,4 @@ bindkey "^N" history-beginning-search-forward-end
 export GIT_EDITOR=/usr/bin/vim
 
 # rbenv settings
-eval "$(rbenv init - zsh)"
 export CC=/usr/bin/gcc
