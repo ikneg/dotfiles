@@ -16,6 +16,9 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 't9md/vim-quickhl'
 NeoBundle 'yaml.vim'
 NeoBundle 'slim-template/vim-slim'
+NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'kannokanno/previm'
+NeoBundle 'tyru/open-browser.vim'
 
 call neobundle#end()
 
@@ -137,3 +140,9 @@ nmap <Space>m <Plug>(quickhl-manual-this)
 xmap <Space>m <Plug>(quickhl-manual-this)
 nmap <Space>M <Plug>(quickhl-manual-reset)
 xmap <Space>M <Plug>(quickhl-manual-reset)
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" markdown
+""""""""""""""""""""""""""""""""""""""""""""""""""
+au BufRead,BufNewFile *.md set filetype=markdown
+"let g:previm_open_cmd = 'open -a google-chrome'

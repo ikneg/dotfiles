@@ -38,3 +38,5 @@ export GIT_EDITOR=/usr/bin/vim
 
 # rbenv settings
 export CC=/usr/bin/gcc
+
+# prompt

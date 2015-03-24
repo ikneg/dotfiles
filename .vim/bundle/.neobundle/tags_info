@@ -2,8 +2,11 @@ lightline.vim
 neocomplete.vim
 neosnippet
 neosnippet-snippets
+open-browser.vim
+previm
 unite.vim
 vim-colors-solarized
+vim-markdown
 vim-quickhl
 vim-slim
 yaml.vim
