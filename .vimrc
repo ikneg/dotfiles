@@ -12,13 +12,15 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'itchyny/lightline.vim'
 NeoBundle 't9md/vim-quickhl'
 NeoBundle 'yaml.vim'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'git://github.com/jimsei/winresizer.git'
+NeoBundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+NeoBundle 'sudo.vim'
 
 call neobundle#end()
 
@@ -35,14 +37,6 @@ colorscheme solarized
 set t_Co=16
 
 vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')<CR><CR>
-
-"---------------------------
-"" lightline
-"---------------------------
-set laststatus=1
-let g:lightline = {
-    \ 'colorscheme': 'solarized',
-    \ }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  basic settings
@@ -62,6 +56,9 @@ set directory=$HOME/.vimbackup
 set undodir=$HOME/.vimbackup
 set encoding=utf-8
 set incsearch
+set laststatus=2
+set showtabline=2
+set noshowmode
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " タブ、空白、改行の可視化
@@ -146,3 +143,11 @@ xmap <Space>M <Plug>(quickhl-manual-reset)
 """"""""""""""""""""""""""""""""""""""""""""""""""
 au BufRead,BufNewFile *.md set filetype=markdown
 "let g:previm_open_cmd = 'open -a google-chrome'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim powerline
+""""""""""""""""""""""""""""""""""""""""""""""""""
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+set rtp+=/usr/lib/python2.7/site-packages/powerline/bindings/vim

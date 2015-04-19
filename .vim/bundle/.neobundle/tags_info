@@ -1,12 +1,14 @@
-lightline.vim
 neocomplete.vim
 neosnippet
 neosnippet-snippets
 open-browser.vim
+powerline
 previm
+sudo.vim
 unite.vim
 vim-colors-solarized
 vim-markdown
 vim-quickhl
 vim-slim
+winresizer
 yaml.vim

@@ -1,3 +1,7 @@
 [user]
 	name = Genki OHMORI
 	email = 0930019@gmail.com
+[alias]
+	co = checkout
+[core]
+	excludesfile = /home/genki/.gitignore

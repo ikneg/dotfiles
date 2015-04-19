@@ -40,3 +40,4 @@ export GIT_EDITOR=/usr/bin/vim
 export CC=/usr/bin/gcc
 
 # prompt
+# export PROMPT="$PROMPT""$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")"
