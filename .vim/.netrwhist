@@ -1,6 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/usr/lib/python2.7/site-packages/powerline/config_files/themes/tmux'
-let g:netrw_dirhist_2='/usr/lib/python2.7/site-packages/powerline/config_files/themes'
-let g:netrw_dirhist_3='/usr/lib/python2.7/site-packages/powerline/config_files'
-let g:netrw_dirhist_4='/usr/lib/python2.7/site-packages/powerline/config_files/themes'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/home/genki/dotfiles/.tmux/tmux-powerline'
