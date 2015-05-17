@@ -22,6 +22,7 @@ NeoBundle 'git://github.com/jimsei/winresizer.git'
 NeoBundle 'sudo.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'tpope/vim-fugitive'
 
 call neobundle#end()
 

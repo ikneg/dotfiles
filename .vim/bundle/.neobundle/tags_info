@@ -7,6 +7,7 @@ previm
 sudo.vim
 unite.vim
 vim-colors-solarized
+vim-fugitive
 vim-gitgutter
 vim-markdown
 vim-quickhl
