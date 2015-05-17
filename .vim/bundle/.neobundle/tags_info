@@ -1,3 +1,4 @@
+lightline.vim
 neocomplete.vim
 neosnippet
 neosnippet-snippets
@@ -6,6 +7,7 @@ previm
 sudo.vim
 unite.vim
 vim-colors-solarized
+vim-gitgutter
 vim-markdown
 vim-quickhl
 vim-slim
