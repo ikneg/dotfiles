@@ -43,6 +43,7 @@ vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')<CR><C
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  basic settings
 """"""""""""""""""""""""""""""""""""""""""""""""""
+set showtabline=0
 set cursorline
 hi CursorLineNr term=bold cterm=NONE ctermfg=228 ctermbg=NONE
 set ambiwidth=double
@@ -61,7 +62,6 @@ set undodir=$HOME/.vimbackup
 set encoding=utf-8
 set incsearch
 set laststatus=2
-set showtabline=2
 set noshowmode
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -309,3 +309,4 @@ function! MyGitGutter()
   endfor
   return join(ret, ' ')
 endfunction
+let g:unite_force_overwrite_statusline = 0
