@@ -231,7 +231,7 @@ let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive', 'gitgutter', 'dirname', 'filename' ] ],
-      \   'right': [ ['lineinfo'],
+      \   'right': [ ['syntastic', 'lineinfo'],
       \              ['percent'],
       \              ['currentdirname', 'fileformat', 'fileencoding', 'filetype'] ]
       \ },
@@ -248,8 +248,6 @@ let g:lightline = {
       \   'currentdirname': 'MyCurrentDirname',
       \   'gitgutter'     : 'MyGitGutter',
       \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
       \ }
 
 function! MyModified()
