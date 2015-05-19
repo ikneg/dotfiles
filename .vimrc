@@ -23,6 +23,7 @@ NeoBundle 'sudo.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'scrooloose/syntastic'
 
 call neobundle#end()
 
@@ -224,24 +225,28 @@ let g:gitgutter_sign_added = '✚'
 let g:gitgutter_sign_modified = '➜'
 let g:gitgutter_sign_removed = '✘'
 
+let g:unite_force_overwrite_statusline = 0
 let g:lightline = {
       \ 'colorscheme': 'solarized',
-      \ 'mode_map': { 'c': 'NORMAL' },
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'gitgutter', 'filename' ] ],
-      \   'right': [ ['lineinfo', 'syntastic'], ['percent'], ['fileformat', 'fileencoding', 'filetype'] ]
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive', 'gitgutter', 'dirname', 'filename' ] ],
+      \   'right': [ ['lineinfo'],
+      \              ['percent'],
+      \              ['currentdirname', 'fileformat', 'fileencoding', 'filetype'] ]
       \ },
       \ 'component_function': {
-      \   'modified': 'MyModified',
-      \   'readonly': 'MyReadonly',
-      \   'fugitive': 'MyFugitive',
-      \   'filename': 'MyFilename',
-      \   'fileformat': 'MyFileformat',
-      \   'filetype': 'MyFiletype',
-      \   'fileencoding': 'MyFileencoding',
-      \   'mode': 'MyMode',
-      \   'syntastic': 'SyntasticStatuslineFlag',
-      \   'gitgutter': 'MyGitGutter',
+      \   'modified'      : 'MyModified',
+      \   'readonly'      : 'MyReadonly',
+      \   'fugitive'      : 'MyFugitive',
+      \   'dirname'       : 'MyDirname',
+      \   'filename'      : 'MyFilename',
+      \   'fileformat'    : 'MyFileformat',
+      \   'filetype'      : 'MyFiletype',
+      \   'fileencoding'  : 'MyFileencoding',
+      \   'mode'          : 'MyMode',
+      \   'currentdirname': 'MyCurrentDirname',
+      \   'gitgutter'     : 'MyGitGutter',
       \ },
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' }
@@ -286,7 +291,23 @@ endfunction
 
 function! MyMode()
   return &ft == 'unite' ? 'Unite' :
-        \ winwidth(0) > 60 ? lightline#mode() : ''
+        \ lightline#mode()
+endfunction
+
+function! MyDirname()
+  if winwidth(0) > 200
+    return expand("%:h:s?\\S$?\\0/?")
+  else
+    return ''
+  endif
+endfunction
+
+function! MyCurrentDirname()
+  if winwidth(0) > 200
+    return fnamemodify(getcwd(), ":~")
+  else
+    return ''
+  endif
 endfunction
 
 function! MyGitGutter()
@@ -309,4 +330,3 @@ function! MyGitGutter()
   endfor
   return join(ret, ' ')
 endfunction
-let g:unite_force_overwrite_statusline = 0

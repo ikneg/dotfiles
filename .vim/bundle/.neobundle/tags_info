@@ -5,6 +5,7 @@ neosnippet-snippets
 open-browser.vim
 previm
 sudo.vim
+syntastic
 unite.vim
 vim-colors-solarized
 vim-fugitive
