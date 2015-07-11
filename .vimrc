@@ -220,11 +220,28 @@ xmap <Space>M <Plug>(quickhl-manual-reset)
 au BufRead,BufNewFile *.md set filetype=markdown
 "let g:previm_open_cmd = 'open -a google-chrome'
 
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" syntastic
+""""""""""""""""""""""""""""""""""""""""""""""""""
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-gitgutter
+""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:gitgutter_sign_added = '✚'
 let g:gitgutter_sign_modified = '➜'
 let g:gitgutter_sign_removed = '✘'
 
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" lightline
+""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:unite_force_overwrite_statusline = 0
 let g:lightline = {
       \ 'colorscheme': 'solarized',
@@ -247,6 +264,12 @@ let g:lightline = {
       \   'mode'          : 'MyMode',
       \   'currentdirname': 'MyCurrentDirname',
       \   'gitgutter'     : 'MyGitGutter',
+      \ },
+      \ 'component_expand': {
+      \   'syntastic': 'SyntasticStatuslineFlag',
+      \ },
+      \ 'component_type': {
+      \   'syntastic': 'error',
       \ },
       \ }
 
@@ -293,7 +316,7 @@ function! MyMode()
 endfunction
 
 function! MyDirname()
-  if winwidth(0) > 200
+  if winwidth(0) > 100
     return expand("%:h:s?\\S$?\\0/?")
   else
     return ''

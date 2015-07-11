@@ -2,6 +2,24 @@
 	name = Genki OHMORI
 	email = 0930019@gmail.com
 [alias]
-	co = checkout
+    st = status -sb
+    di = diff
+    co = checkout
+    ci = commit
+    br = branch
+    fixup = commit --amend -C HEAD
+    gsub = git-gsub
+[color]
+    diff = auto
+    status = auto
+    branch = auto
 [core]
-	excludesfile = /home/genki/.gitignore
+    excludesfile = /home/genki/.gitignore
+    mergeoptions = --no-ff --no-commit
+    editor = /usr/bin/vim
+[github]
+    user = ikneg
+[pull]
+    rebase = true
+[push]
+    default = simple

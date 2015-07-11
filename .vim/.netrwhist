@@ -1,9 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/genki/work/sample_app/app/controllers'
-let g:netrw_dirhist_2='/home/genki/work/pdf'
-let g:netrw_dirhist_3='/home/genki/work/sample_app'
-let g:netrw_dirhist_4='/home/genki/work/sample_app/app'
-let g:netrw_dirhist_5='/home/genki/work/sample_app/app/views'
-let g:netrw_dirhist_6='/home/genki/work/sample_app/app/views/users'
-let g:netrw_dirhist_7='/home/genki/work/sample_app'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/home/genki/work/typem/branches/fix_all_problem/hub/application'
