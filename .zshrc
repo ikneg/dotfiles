@@ -18,7 +18,7 @@ if [ "$TMUX" = "" ]; then
 
     # detachしてない場合
     if [ $? ]; then
-        tmux;
+        "tmux";
     fi
 fi
 
@@ -38,3 +38,6 @@ export GIT_EDITOR=/usr/bin/vim
 
 # rbenv settings
 export CC=/usr/bin/gcc
+
+# dircolor
+eval $(dircolors ~/dircolors-solarized/dircolors.ansi-universal)

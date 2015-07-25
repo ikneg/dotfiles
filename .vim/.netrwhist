@@ -1,11 +1,4 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/home/genki/work/typem/trunk/hub/peripheral'
-let g:netrw_dirhist_2='/home/genki/work/whill-crm'
-let g:netrw_dirhist_3='/home/genki/work/whill-crm/app'
-let g:netrw_dirhist_4='/home/genki/work/whill-crm/app/controllers'
-let g:netrw_dirhist_5='/home/genki/work/whill-crm/app/views'
-let g:netrw_dirhist_6='/home/genki/work/whill-crm/app/views/layouts'
-let g:netrw_dirhist_7='/home/genki/work/.svn'
-let g:netrw_dirhist_8='/home/genki/work/.svn/pristine'
-let g:netrw_dirhist_9='/home/genki/work/.svn'
+let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_1='/home/genki/dotfiles/.vim/bundle/vim-quickhl'
+let g:netrw_dirhist_2='/home/genki/dotfiles/.vim/bundle/vim-quickhl/plugin'
