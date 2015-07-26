@@ -73,6 +73,8 @@ set encoding=utf-8
 set incsearch
 set laststatus=2
 set noshowmode
+set re=1
+set nofoldenable
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " タブ、空白、改行の可視化
@@ -254,6 +256,7 @@ let g:gitgutter_sign_removed = '✘'
 let g:unite_force_overwrite_statusline = 0
 let g:lightline = {
       \ 'colorscheme': 'solarized',
+      \ 'subseparator': { 'left': '', 'right': '' },
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive', 'gitgutter', 'dirname', 'filename' ] ],
@@ -360,3 +363,4 @@ function! MyGitGutter()
   endfor
   return join(ret, ' ')
 endfunction
+
