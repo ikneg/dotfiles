@@ -1,8 +1,14 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
+setopt hist_ignore_dups
+setopt share_history
 setopt autocd
+setopt auto_pushd
+setopt correct
+setopt list_packed
+setopt nolistbeep
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
@@ -37,3 +43,8 @@ if [ -e /usr/share/terminfo/x/xterm-256color ]; then
 else
         export TERM='xterm-color'
 fi
+
+# git
+setopt prompt_subst
+. /usr/share/git-core/contrib/completion/git-prompt.sh
+export RPROMPT=$'$(__git_ps1 "%s")'
