@@ -1,11 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/home/genki/dotfiles/.vim/bundle/vim-quickhl'
-let g:netrw_dirhist_2='/home/genki/dotfiles/.vim/bundle/vim-quickhl/plugin'
-let g:netrw_dirhist_3='/home/genki/work/slope/app'
-let g:netrw_dirhist_4='/home/genki/work/slope/app/controllers'
-let g:netrw_dirhist_5='/home/genki/work/slope/app'
-let g:netrw_dirhist_6='/home/genki/work/slope/app/models'
-let g:netrw_dirhist_7='/home/genki/work/slope'
-let g:netrw_dirhist_8='/home/genki/work/slope/app'
-let g:netrw_dirhist_9='/home/genki/work/slope/app/models'
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/genki/work/slope/app'
+let g:netrw_dirhist_2='/home/genki/work/slope/app/views'
+let g:netrw_dirhist_3='/home/genki/work/slope/app/views/layouts'
