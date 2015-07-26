@@ -34,10 +34,19 @@ filetype plugin indent on
 " 毎回聞かれると邪魔な場合もあるので、この設定は任意です。
 NeoBundleCheck
 
+set t_Co=256
+set term=xterm-256color
+let g:solarized_termcolors=16
+let g:solarized_termtrans=0
+let g:solarized_degrade=0
+let g:solarized_bold=1
+let g:solarized_underline=1
+let g:solarized_italic=1
+let g:solarized_contrast='normal'
+let g:solarized_visibility='normal'
 syntax enable
 set background=dark
 colorscheme solarized
-set t_Co=16
 
 vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')<CR><CR>
 

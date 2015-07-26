@@ -12,16 +12,6 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-# tmux
-if [ "$TMUX" = "" ]; then
-    tmux attach;
-
-    # detachしてない場合
-    if [ $? ]; then
-        "tmux";
-    fi
-fi
-
 # Path settings
 PATH="/usr/local/heroku/bin:$PATH"
 PATH="/usr/local/rbenv:$PATH"
@@ -41,3 +31,9 @@ export CC=/usr/bin/gcc
 
 # dircolor
 eval $(dircolors ~/dircolors-solarized/dircolors.ansi-universal)
+
+if [ -e /usr/share/terminfo/x/xterm-256color ]; then
+        export TERM='xterm-256color'
+else
+        export TERM='xterm-color'
+fi
