@@ -1,5 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/genki/work/slope/app'
-let g:netrw_dirhist_2='/home/genki/work/slope/app/views'
-let g:netrw_dirhist_3='/home/genki/work/slope/app/views/layouts'
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/genki/work/typem/trunk/hub/application'
+let g:netrw_dirhist_2='/home/genki/work/typem/trunk/indicator'
+let g:netrw_dirhist_3='/home/genki/work/typem/trunk/directional_controller'
+let g:netrw_dirhist_4='/home/genki/work/typem/branches/indicator_error'
+let g:netrw_dirhist_5='/home/genki/work/typem/trunk/hub'
+let g:netrw_dirhist_6='/home/genki/work/typem/trunk/hub/application'
+let g:netrw_dirhist_7='/home/genki/work/typem/tags/TypeM_01.00_RC1_directional_controller'

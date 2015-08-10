@@ -14,7 +14,7 @@
     status = auto
     branch = auto
 [core]
-    excludesfile = /home/genki/.gitignore
+    excludesfile = ~/.gitignore
     mergeoptions = --no-ff --no-commit
     editor = /usr/bin/vim
 [github]
