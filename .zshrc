@@ -2,7 +2,7 @@
 HISTFILE=~/.histfile
 HISTSIZE=1000000
 SAVEHIST=1000000
-setopt hist_ignore_dups
+setopt hist_ignore_all_dups
 setopt share_history
 setopt autocd
 setopt auto_pushd
