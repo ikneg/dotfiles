@@ -1,6 +1,6 @@
 *neocomplete.txt*	Next generation of auto completion framework.
 
-Version: 2.1
+Version: 2.2
 Author: Shougo <Shougo.Matsu@gmail.com>
 License: MIT license  {{{
     Permission is hereby granted, free of charge, to any person obtaining
@@ -173,8 +173,14 @@ https://github.com/Shougo/context_filetype.vim
 
 						*neocomplete-include*
 
-If you want to complete from include files or include files, you need to
-install the neoinclude plugin (https://github.com/Shougo/neoinclude.vim).
+If you want to complete the candidates from include files or include files
+candidates, you need to install the neoinclude plugin
+(https://github.com/Shougo/neoinclude.vim).
+
+						*neocomplete-syntax*
+
+If you want to complete the candidates from syntax files, you need to install
+the neco-syntax plugin (https://github.com/Shougo/neco-syntax).
 
 ==============================================================================
 INTERFACE					*neocomplete-interface*
@@ -234,13 +240,8 @@ SOURCES COMMANDS 				*neocomplete-sources-COMMANDS*
 		[bufname] automatically.
 		Note: It may take time considerably for the big buffer.
 
-:NeoCompleteSyntaxMakeCache [filetype]		*:NeoCompleteSyntaxMakeCache*
-		Make a cache from the syntax file with [filetype]
-		The current buffer's filetype is selected if [filetype]
-		is omitted
-
-:NeoCompleteDictionaryMakeCache [filetype]
 					*:NeoCompleteDictionaryMakeCache*
+:NeoCompleteDictionaryMakeCache [filetype]
 		Make a cache from a dictionary file with [filetype].
 		Selects the filetype of the current buffer if [filetype] is
 		omitted.
@@ -333,7 +334,8 @@ g:neocomplete#enable_camel_case
 g:neocomplete#disable_auto_complete
 		This variable controls whether you invalidate automatic
 		completion.  If it is 1, automatic completion becomes
-		invalid, but can use the manual completion by <C-x><C-u>.
+		invalid, but can use the manual completion by
+		|neocomplete#start_manual_complete()|.
 
 		Default value is 0.
 
@@ -370,6 +372,10 @@ g:neocomplete#enable_auto_select
 		whether neocomplete selects the first candidate
 		automatically.  If you enable this option, neocomplete's
 		completion behavior is like |AutoComplPop|.
+
+		Note: If you want to enable the feature in
+		|g:neocomplete#force_omni_input_patterns|, you need Vim
+		7.4.775 or above.
 
 		Default value is 0.
 
@@ -447,8 +453,7 @@ g:neocomplete#force_omni_input_patterns
 		If this pattern is not defined or empty pattern, neocomplete
 		does not call 'omnifunc'.
 		Note: If it is a set, neocomplete will call 'omnifunc'
-		directly.  So almost neocomplete features are disabled(for
-		example: auto select first candidate).  But
+		directly.  So almost neocomplete features are disabled.  But
 		all Omni completion works instead of
 		|g:neocomplete#sources#omni#input_patterns|.
 >
@@ -505,25 +510,6 @@ g:neocomplete#text_mode_filetypes
 		"FO", neocomplete will convert candidate "foo" to "FOO".
 		Note: Text mode conversion is only used for "foobar" or
 		"Foobar" or "FOOBAR" words.  Not "fooBar" or "FooBar".
-
-		Because it is complicated, refer to
-		neocomplete#init#_variables() in
-		autoload/neocomplete/init.vim for the initial value.
-
-g:neocomplete#ctags_command		*g:neocomplete#ctags_command*
-		It is the path to the ctags command.
-		Note: If this command is not installed, include source is
-		disabled.
-
-		Default value is "ctags".
-
-					*g:neocomplete#ctags_arguments*
-g:neocomplete#ctags_arguments
-		It is the dictionary of the character string to set a value
-		to give as an argument of the commands when buffer
-		and include use a ctags command.  The dictionary's
-		key is filetype.  If the key is "_", it will be used for
-		default.
 
 		Because it is complicated, refer to
 		neocomplete#init#_variables() in
@@ -677,13 +663,6 @@ g:neocomplete#sources#dictionary#dictionaries
 
 		Default value is {}.
 
-			*g:neocomplete#sources#syntax#min_keyword_length*
-g:neocomplete#sources#syntax#min_keyword_length
-		In syntax files, this variable controls length of keyword
-		becoming the object of the completion at the minimum.
-
-		Default value is 4.
-
 				*g:neocomplete#sources#member#prefix_patterns*
 g:neocomplete#sources#member#prefix_patterns
 		This variable appoints a prefix pattern to complete a member
@@ -830,6 +809,16 @@ neocomplete#disable_default_dictionary({variable-name})
 	call neocomplete#disable_default_dictionary(
 	      \ 'g:neocomplete#same_filetypes')
 <
+				*neocomplete#get_default_matchers()*
+neocomplete#get_default_matchers()
+		Get default matchers in current buffer.
+
+				*neocomplete#set_default_matchers()*
+neocomplete#set_default_matchers({names})
+		Chang default matchers in current buffer.
+>
+	call neocomplete#set_default_matchers('matcher_head')
+<
 ------------------------------------------------------------------------------
 KEY MAPPINGS 					*neocomplete-key-mappings*
 
@@ -908,8 +897,6 @@ EXAMPLES					*neocomplete-examples*
 	let g:neocomplete#enable_at_startup = 1
 	" Use smartcase.
 	let g:neocomplete#enable_smart_case = 1
-	" Set minimum syntax keyword length.
-	let g:neocomplete#sources#syntax#min_keyword_length = 3
 	let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 	" Define dictionary.
@@ -1013,20 +1000,6 @@ tag						*neocomplete-source-tag*
 		too slow if tag read a big tags file.  You should use
 		more convenient include source completion now.
 
-syntax						*neocomplete-source-syntax*
-		This source analyzes a syntax file like
-		autoload/syntaxcomplete.vim offered by default, and to
-		add to candidate completion.  The plugin can recognize
-		candidates a lot more than autoload/syntaxcomplete.vim.
-
-vim						*neocomplete-source-vim*
-		This source analyzes context and start Omni completion of
-		Vim script.  This plugin does not work other than editing
-		time of Vim script.  I created it because neocomplete
-		cannot call |i_CTRL-X_CTRL-V|.  Local variable and a
-		script variable, a function and the analysis of the
-		command are implemented now.
-
 dictionary					*neocomplete-source-dictionary*
 		This source adds candidates from 'dictionary' or
 		|g:neocomplete#sources#dictionary#dictionaries|.
@@ -1049,7 +1022,7 @@ suffix of complete candidates in popup menu declaration.
     file/include      -> [FI] {filename}
     dictionary        -> [D] {words}
     member            -> [M] member
-    buffer            -> [B] {buffername}
+    buffer            -> [B] {buffer}
     syntax            -> [S] {syntax-keyword}
     include           -> [I]
     neosnippet        -> [neosnip]
@@ -1077,6 +1050,14 @@ neco-ghc				*neocomplete-sources-neco-ghc*
 		eagletmt originally implemented and ujihisa added some new
 		features. It completes a source file written in Haskell.
 		It requires ghc-mod <http://www.mew.org/~kazu/proj/ghc-mod/>.
+
+neco-vim				*neocomplete-sources-neco-vim*
+		https://github.com/Shougo/neco-vim
+		It analyzes context and start Omni completion of Vim script.
+		It does not work other than editing time of Vim script.  I
+		created it because neocomplete cannot call |i_CTRL-X_CTRL-V|.
+		Local variable and a script variable, a function and the
+		analysis of the command are implemented now.
 
 ==============================================================================
 FILTERS						*neocomplete-filters*
@@ -1114,6 +1095,8 @@ Default matchers:
 		['matcher_head', 'matcher_length']
 	Otherwise:
 		['matcher_fuzzy', 'matcher_length']
+	
+	You can change it by |neocomplete#set_default_matchers()|.
 
 					*neocomplete-filter-sorter_default*
 Default sorters: ['sorter_rank'].
@@ -1879,7 +1862,7 @@ Q: In ||g:neocomplete#force_omni_input_patterns|,
 |g:neocomplete#enable_auto_select| feature is not work.
 https://github.com/Shougo/neocomplete.vim/issues/139
 
-A: It is feature. See |g:neocomplete#force_omni_input_patterns| documentation.
+A: Please update your Vim to 7.4.775 or above.
 
 Q: I want to disable all sources by default.
 
