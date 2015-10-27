@@ -203,6 +203,7 @@ GitGutterUsage	gitgutter.txt	/*GitGutterUsage*
 OpenBrowser()	openbrowser.txt	/*OpenBrowser()*
 OpenBrowserSearch()	openbrowser.txt	/*OpenBrowserSearch()*
 b:neocomplete_sources	neocomplete.txt	/*b:neocomplete_sources*
+b:neosnippet_disable_snippet_triggers	neosnippet.txt	/*b:neosnippet_disable_snippet_triggers*
 before	solarized.txt	/*before*
 filter-overrides	syntastic.txt	/*filter-overrides*
 fugitive	fugitive.txt	/*fugitive*
@@ -316,7 +317,6 @@ g:neocomplete#enable_camel_case	neocomplete.txt	/*g:neocomplete#enable_camel_cas
 g:neocomplete#enable_cursor_hold_i	neocomplete.txt	/*g:neocomplete#enable_cursor_hold_i*
 g:neocomplete#enable_fuzzy_completion	neocomplete.txt	/*g:neocomplete#enable_fuzzy_completion*
 g:neocomplete#enable_ignore_case	neocomplete.txt	/*g:neocomplete#enable_ignore_case*
-g:neocomplete#enable_insert_char_pre	neocomplete.txt	/*g:neocomplete#enable_insert_char_pre*
 g:neocomplete#enable_multibyte_completion	neocomplete.txt	/*g:neocomplete#enable_multibyte_completion*
 g:neocomplete#enable_smart_case	neocomplete.txt	/*g:neocomplete#enable_smart_case*
 g:neocomplete#fallback_mappings	neocomplete.txt	/*g:neocomplete#fallback_mappings*
@@ -374,6 +374,7 @@ g:previm_custom_css_path	previm.txt	/*g:previm_custom_css_path*
 g:previm_disable_default_css	previm.txt	/*g:previm_disable_default_css*
 g:previm_enable_realtime	previm.txt	/*g:previm_enable_realtime*
 g:previm_open_cmd	previm.txt	/*g:previm_open_cmd*
+g:previm_show_header	previm.txt	/*g:previm_show_header*
 g:quickhl_cword_enable_at_startup	quickhl.txt	/*g:quickhl_cword_enable_at_startup*
 g:quickhl_cword_hl_command	quickhl.txt	/*g:quickhl_cword_hl_command*
 g:quickhl_manual_colors	quickhl.txt	/*g:quickhl_manual_colors*
@@ -418,10 +419,6 @@ g:unite_source_grep_default_opts	unite.txt	/*g:unite_source_grep_default_opts*
 g:unite_source_grep_encoding	unite.txt	/*g:unite_source_grep_encoding*
 g:unite_source_grep_recursive_opt	unite.txt	/*g:unite_source_grep_recursive_opt*
 g:unite_source_grep_search_word_highlight	unite.txt	/*g:unite_source_grep_search_word_highlight*
-g:unite_source_history_save_clipboard	unite.txt	/*g:unite_source_history_save_clipboard*
-g:unite_source_history_yank_enable	unite.txt	/*g:unite_source_history_yank_enable*
-g:unite_source_history_yank_file	unite.txt	/*g:unite_source_history_yank_file*
-g:unite_source_history_yank_limit	unite.txt	/*g:unite_source_history_yank_limit*
 g:unite_source_line_enable_highlight	unite.txt	/*g:unite_source_line_enable_highlight*
 g:unite_source_menu_menus	unite.txt	/*g:unite_source_menu_menus*
 g:unite_source_neobundle_install_max_processes	neobundle.txt	/*g:unite_source_neobundle_install_max_processes*
@@ -454,7 +451,6 @@ i_<Plug>(unite_move_head)	unite.txt	/*i_<Plug>(unite_move_head)*
 i_<Plug>(unite_move_left)	unite.txt	/*i_<Plug>(unite_move_left)*
 i_<Plug>(unite_move_right)	unite.txt	/*i_<Plug>(unite_move_right)*
 i_<Plug>(unite_narrowing_input_history)	unite.txt	/*i_<Plug>(unite_narrowing_input_history)*
-i_<Plug>(unite_narrowing_path)	unite.txt	/*i_<Plug>(unite_narrowing_path)*
 i_<Plug>(unite_new_candidate)	unite.txt	/*i_<Plug>(unite_new_candidate)*
 i_<Plug>(unite_print_candidate)	unite.txt	/*i_<Plug>(unite_print_candidate)*
 i_<Plug>(unite_print_message_log)	unite.txt	/*i_<Plug>(unite_print_message_log)*
@@ -518,6 +514,7 @@ lightline-spirit	lightline.txt	/*lightline-spirit*
 lightline-troubleshooting	lightline.txt	/*lightline-troubleshooting*
 lightline.txt	lightline.txt	/*lightline.txt*
 neobundle	neobundle.txt	/*neobundle*
+neobundle#append()	neobundle.txt	/*neobundle#append()*
 neobundle#begin()	neobundle.txt	/*neobundle#begin()*
 neobundle#bundle()	neobundle.txt	/*neobundle#bundle()*
 neobundle#call_hook()	neobundle.txt	/*neobundle#call_hook()*
@@ -532,9 +529,9 @@ neobundle#has_fresh_cache()	neobundle.txt	/*neobundle#has_fresh_cache()*
 neobundle#hooks	neobundle.txt	/*neobundle#hooks*
 neobundle#is_installed()	neobundle.txt	/*neobundle#is_installed()*
 neobundle#is_sourced()	neobundle.txt	/*neobundle#is_sourced()*
+neobundle#load_cache()	neobundle.txt	/*neobundle#load_cache()*
 neobundle#load_toml()	neobundle.txt	/*neobundle#load_toml()*
 neobundle#local()	neobundle.txt	/*neobundle#local()*
-neobundle#rc()	neobundle.txt	/*neobundle#rc()*
 neobundle#source()	neobundle.txt	/*neobundle#source()*
 neobundle#tap()	neobundle.txt	/*neobundle#tap()*
 neobundle#tapped	neobundle.txt	/*neobundle#tapped*
@@ -561,16 +558,17 @@ neobundle-options-depends	neobundle.txt	/*neobundle-options-depends*
 neobundle-options-directory	neobundle.txt	/*neobundle-options-directory*
 neobundle-options-disabled	neobundle.txt	/*neobundle-options-disabled*
 neobundle-options-external_commands	neobundle.txt	/*neobundle-options-external_commands*
+neobundle-options-fetch	neobundle.txt	/*neobundle-options-fetch*
 neobundle-options-focus	neobundle.txt	/*neobundle-options-focus*
 neobundle-options-force	neobundle.txt	/*neobundle-options-force*
 neobundle-options-gui	neobundle.txt	/*neobundle-options-gui*
 neobundle-options-hooks	neobundle.txt	/*neobundle-options-hooks*
+neobundle-options-install_process_timeout	neobundle.txt	/*neobundle-options-install_process_timeout*
 neobundle-options-lazy	neobundle.txt	/*neobundle-options-lazy*
 neobundle-options-name	neobundle.txt	/*neobundle-options-name*
 neobundle-options-overwrite	neobundle.txt	/*neobundle-options-overwrite*
 neobundle-options-recipe	neobundle.txt	/*neobundle-options-recipe*
 neobundle-options-regular_name	neobundle.txt	/*neobundle-options-regular_name*
-neobundle-options-resettable	neobundle.txt	/*neobundle-options-resettable*
 neobundle-options-rtp	neobundle.txt	/*neobundle-options-rtp*
 neobundle-options-script_type	neobundle.txt	/*neobundle-options-script_type*
 neobundle-options-site	neobundle.txt	/*neobundle-options-site*
@@ -690,6 +688,7 @@ neocomplete-user-sources	neocomplete.txt	/*neocomplete-user-sources*
 neocomplete-variables	neocomplete.txt	/*neocomplete-variables*
 neocomplete.txt	neocomplete.txt	/*neocomplete.txt*
 neosnippet	neosnippet.txt	/*neosnippet*
+neosnippet#anonymous()	neosnippet.txt	/*neosnippet#anonymous()*
 neosnippet#expandable()	neosnippet.txt	/*neosnippet#expandable()*
 neosnippet#expandable_or_jumpable()	neosnippet.txt	/*neosnippet#expandable_or_jumpable()*
 neosnippet#get_snippets_directory()	neosnippet.txt	/*neosnippet#get_snippets_directory()*
@@ -901,6 +900,7 @@ unite-filter-attribute-filter	unite.txt	/*unite-filter-attribute-filter*
 unite-filter-attribute-name	unite.txt	/*unite-filter-attribute-name*
 unite-filter-attribute-pattern	unite.txt	/*unite-filter-attribute-pattern*
 unite-filter-attributes	unite.txt	/*unite-filter-attributes*
+unite-filter-converter_abbr_word	unite.txt	/*unite-filter-converter_abbr_word*
 unite-filter-converter_default	unite.txt	/*unite-filter-converter_default*
 unite-filter-converter_file_directory	unite.txt	/*unite-filter-converter_file_directory*
 unite-filter-converter_full_path	unite.txt	/*unite-filter-converter_full_path*
@@ -926,6 +926,7 @@ unite-filter-sorter_length	unite.txt	/*unite-filter-sorter_length*
 unite-filter-sorter_nothing	unite.txt	/*unite-filter-sorter_nothing*
 unite-filter-sorter_rank	unite.txt	/*unite-filter-sorter_rank*
 unite-filter-sorter_reverse	unite.txt	/*unite-filter-sorter_reverse*
+unite-filter-sorter_selecta	unite.txt	/*unite-filter-sorter_selecta*
 unite-filter-sorter_word	unite.txt	/*unite-filter-sorter_word*
 unite-filter-variables	unite.txt	/*unite-filter-variables*
 unite-filters	unite.txt	/*unite-filters*
@@ -1009,6 +1010,7 @@ unite-options-previewheight	unite.txt	/*unite-options-previewheight*
 unite-options-profile-name	unite.txt	/*unite-options-profile-name*
 unite-options-prompt	unite.txt	/*unite-options-prompt*
 unite-options-prompt-direction	unite.txt	/*unite-options-prompt-direction*
+unite-options-prompt-focus	unite.txt	/*unite-options-prompt-focus*
 unite-options-prompt-visible	unite.txt	/*unite-options-prompt-visible*
 unite-options-quick-match	unite.txt	/*unite-options-quick-match*
 unite-options-resume	unite.txt	/*unite-options-resume*
@@ -1052,7 +1054,6 @@ unite-source-attribute-hooks-on_post_filter	unite.txt	/*unite-source-attribute-h
 unite-source-attribute-hooks-on_pre_filter	unite.txt	/*unite-source-attribute-hooks-on_pre_filter*
 unite-source-attribute-hooks-on_pre_init	unite.txt	/*unite-source-attribute-hooks-on_pre_init*
 unite-source-attribute-hooks-on_syntax	unite.txt	/*unite-source-attribute-hooks-on_syntax*
-unite-source-attribute-is_grouped	unite.txt	/*unite-source-attribute-is_grouped*
 unite-source-attribute-is_listed	unite.txt	/*unite-source-attribute-is_listed*
 unite-source-attribute-is_volatile	unite.txt	/*unite-source-attribute-is_volatile*
 unite-source-attribute-matchers	unite.txt	/*unite-source-attribute-matchers*
@@ -1084,7 +1085,6 @@ unite-source-find	unite.txt	/*unite-source-find*
 unite-source-function	unite.txt	/*unite-source-function*
 unite-source-grep	unite.txt	/*unite-source-grep*
 unite-source-history/unite	unite.txt	/*unite-source-history\/unite*
-unite-source-history/yank	unite.txt	/*unite-source-history\/yank*
 unite-source-jump	unite.txt	/*unite-source-jump*
 unite-source-jump_point	unite.txt	/*unite-source-jump_point*
 unite-source-launcher	unite.txt	/*unite-source-launcher*

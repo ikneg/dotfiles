@@ -30,19 +30,10 @@ bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
 # Git settings
-export GIT_EDITOR=/usr/bin/vim
+export GIT_EDITOR=/usr/local/bin/vim
 
 # rbenv settings
 export CC=/usr/bin/gcc
-
-# dircolor
-eval $(dircolors ~/dircolors-solarized/dircolors.ansi-universal)
-
-if [ -e /usr/share/terminfo/x/xterm-256color ]; then
-        export TERM='xterm-256color'
-else
-        export TERM='xterm-color'
-fi
 
 # git
 setopt prompt_subst

@@ -16,7 +16,7 @@
 [core]
     excludesfile = ~/.gitignore
     mergeoptions = --no-ff --no-commit
-    editor = /usr/bin/vim
+    editor = usr/local/bin/vim
 [github]
     user = ikneg
 [pull]

@@ -4,6 +4,7 @@ g:previm_custom_css_path	previm.jax	/*g:previm_custom_css_path*
 g:previm_disable_default_css	previm.jax	/*g:previm_disable_default_css*
 g:previm_enable_realtime	previm.jax	/*g:previm_enable_realtime*
 g:previm_open_cmd	previm.jax	/*g:previm_open_cmd*
+g:previm_show_header	previm.jax	/*g:previm_show_header*
 previm#open()	previm.jax	/*previm#open()*
 previm#refresh()	previm.jax	/*previm#refresh()*
 previm-changelog	previm.jax	/*previm-changelog*
