@@ -54,6 +54,7 @@ vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')<CR><C
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "  basic settings
 """"""""""""""""""""""""""""""""""""""""""""""""""
+set backspace=indent,eol,start
 set showtabline=0
 set cursorline
 hi CursorLineNr term=bold cterm=NONE ctermfg=228 ctermbg=NONE

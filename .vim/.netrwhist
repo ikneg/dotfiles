@@ -1,7 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/genki/work/whill-crm/app/views/admin/data'
-let g:netrw_dirhist_2='/home/gnk/dotfiles/.vim'
-let g:netrw_dirhist_3='/home/gnk/dotfiles/.vim/bundle'
-let g:netrw_dirhist_4='/home/gnk/dotfiles/.vim/bundle/vim-colors-solarized'
-let g:netrw_dirhist_5='/home/gnk/work/whill-crm/app/views/admin/data'
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/gnk/work/whill-crm/app/views/admin/data'
+let g:netrw_dirhist_2='/home/gnk/work/whill-crm/app/assets/javascripts'
+let g:netrw_dirhist_3='/home/gnk/work/whill-crm/app/views/admin/data'
+let g:netrw_dirhist_4='/home/gnk/work/whill-crm/app/models'
+let g:netrw_dirhist_5='/home/gnk/work/whill-crm/lib/assets'
+let g:netrw_dirhist_6='/home/gnk/work/whill-crm/lib'
+let g:netrw_dirhist_7='/home/gnk/work/whill-crm/lib/tasks'
+let g:netrw_dirhist_8='/home/gnk/work/whill-crm/app/helpers'
+let g:netrw_dirhist_9='/home/gnk/work/whill-crm/app/views/layouts'

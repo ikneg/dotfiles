@@ -1,5 +1,11 @@
+# dir color
+eval $(dircolors ~/dircolors-solarized/dircolors.ansi-universal)
+
+# alias
+alias vi='vim'
+
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
+HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
 setopt hist_ignore_all_dups
