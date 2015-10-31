@@ -1,5 +1,5 @@
 # dir color
-eval $(dircolors ~/dircolors-solarized/dircolors.ansi-universal)
+eval $(dircolors ~/.dircolors-solarized/dircolors.ansi-universal)
 
 # alias
 alias vi='vim'
