@@ -67,7 +67,7 @@ set list
 set splitright
 set hlsearch
 set nowrap
-set number
+set nonumber
 set backupdir=$HOME/.vimbackup
 set directory=$HOME/.vimbackup
 set undodir=$HOME/.vimbackup
