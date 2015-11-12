@@ -7,6 +7,7 @@ set runtimepath+=~/.vim/bundle/neobundle.vim/
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
 
+NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplete.vim'
@@ -14,8 +15,7 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 't9md/vim-quickhl'
 NeoBundle 'yaml.vim'
-"NeoBundle 'slim-template/vim-slim'
-NeoBundle 'onemanstartup/vim-slim'
+NeoBundle 'slim-template/vim-slim'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
@@ -75,8 +75,8 @@ set encoding=utf-8
 set incsearch
 set laststatus=2
 set noshowmode
-set re=1
 set nofoldenable
+set regexpengine=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " タブ、空白、改行の可視化

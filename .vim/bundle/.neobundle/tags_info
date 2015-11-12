@@ -12,6 +12,7 @@ vim-fugitive
 vim-gitgutter
 vim-markdown
 vim-quickhl
+vim-ruby
 vim-slim
 winresizer
 yaml.vim
