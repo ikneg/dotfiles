@@ -257,14 +257,13 @@ let g:gitgutter_sign_removed = '✘'
 """"""""""""""""""""""""""""""""""""""""""""""""""
 let g:unite_force_overwrite_statusline = 0
 let g:lightline = {
-      \ 'colorscheme': 'solarized',
       \ 'subseparator': { 'left': '', 'right': '' },
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive', 'gitgutter', 'dirname', 'filename' ] ],
       \   'right': [ ['syntastic', 'lineinfo'],
       \              ['percent'],
-      \              ['currentdirname', 'fileformat', 'fileencoding', 'filetype'] ]
+      \              ['currentdirname', 'filetype'] ]
       \ },
       \ 'component_function': {
       \   'modified'      : 'MyModified',
@@ -272,9 +271,7 @@ let g:lightline = {
       \   'fugitive'      : 'MyFugitive',
       \   'dirname'       : 'MyDirname',
       \   'filename'      : 'MyFilename',
-      \   'fileformat'    : 'MyFileformat',
       \   'filetype'      : 'MyFiletype',
-      \   'fileencoding'  : 'MyFileencoding',
       \   'mode'          : 'MyMode',
       \   'currentdirname': 'MyCurrentDirname',
       \   'gitgutter'     : 'MyGitGutter',
@@ -312,17 +309,10 @@ function! MyFugitive()
   return ''
 endfunction
 
-function! MyFileformat()
-  return winwidth(0) > 70 ? &fileformat : ''
-endfunction
-
 function! MyFiletype()
   return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
 endfunction
 
-function! MyFileencoding()
-  return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
-endfunction
 
 function! MyMode()
   return &ft == 'unite' ? 'Unite' :
@@ -365,4 +355,3 @@ function! MyGitGutter()
   endfor
   return join(ret, ' ')
 endfunction
-
