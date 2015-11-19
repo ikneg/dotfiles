@@ -236,10 +236,6 @@ au BufRead,BufNewFile *.md set filetype=markdown
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " syntastic
 """"""""""""""""""""""""""""""""""""""""""""""""""
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 1
@@ -257,7 +253,6 @@ let g:gitgutter_sign_removed = '✘'
 """"""""""""""""""""""""""""""""""""""""""""""""""
 let g:unite_force_overwrite_statusline = 0
 let g:lightline = {
-      \ 'subseparator': { 'left': '', 'right': '' },
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive', 'gitgutter', 'dirname', 'filename' ] ],
