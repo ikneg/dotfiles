@@ -1,8 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/home/gnk/work/mimamori/app/views/users'
 let g:netrw_dirhist_2='/home/gnk/work/mimamori/app/views'
 let g:netrw_dirhist_3='/home/gnk/work/mimamori/app/views/users'
 let g:netrw_dirhist_4='/home/gnk/work/mimamori/app/views'
 let g:netrw_dirhist_5='/home/gnk/work/mimamori/app/views/layouts'
 let g:netrw_dirhist_6='/home/gnk/work/mimamori/app/controllers'
+let g:netrw_dirhist_7='/home/gnk/work/whill-auth/app'
+let g:netrw_dirhist_8='/home/gnk/work/whill-auth/app/models'
