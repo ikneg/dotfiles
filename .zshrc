@@ -15,6 +15,12 @@ setopt auto_pushd
 setopt correct
 setopt list_packed
 setopt nolistbeep
+setopt inc_append_history
+setopt auto_list
+setopt list_packed
+setopt auto_menu
+setopt auto_param_keys
+setopt hist_reduce_blanks
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
