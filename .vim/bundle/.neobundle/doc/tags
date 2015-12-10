@@ -652,6 +652,7 @@ neocomplete-interface	neocomplete.txt	/*neocomplete-interface*
 neocomplete-introduction	neocomplete.txt	/*neocomplete-introduction*
 neocomplete-key-mappings	neocomplete.txt	/*neocomplete-key-mappings*
 neocomplete-migration	neocomplete.txt	/*neocomplete-migration*
+neocomplete-neopairs	neocomplete.txt	/*neocomplete-neopairs*
 neocomplete-notation-{context}	neocomplete.txt	/*neocomplete-notation-{context}*
 neocomplete-snippets	neocomplete.txt	/*neocomplete-snippets*
 neocomplete-source-attribute-disabled	neocomplete.txt	/*neocomplete-source-attribute-disabled*

@@ -51,3 +51,13 @@ export CC=/usr/bin/gcc
 setopt prompt_subst
 . /usr/share/git-core/contrib/completion/git-prompt.sh
 export RPROMPT=$'$(__git_ps1 "%s")'
+
+# peco
+function peco-history-selection() {
+  BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco`
+  CURSOR=$#BUFFER
+  zle reset-prompt
+}
+
+zle -N peco-history-selection
+bindkey '^R' peco-history-selection

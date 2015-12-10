@@ -25,6 +25,7 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'kchmck/vim-coffee-script'
 
 call neobundle#end()
 
@@ -350,3 +351,9 @@ function! MyGitGutter()
   endfor
   return join(ret, ' ')
 endfunction
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" coffeescript
+""""""""""""""""""""""""""""""""""""""""""""""""""
+au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
+autocmd FileType coffee setlocal sw=2 sts=2 ts=2 et
