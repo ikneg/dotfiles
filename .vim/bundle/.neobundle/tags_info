@@ -15,5 +15,6 @@ vim-markdown
 vim-quickhl
 vim-ruby
 vim-slim
+vimproc.vim
 winresizer
 yaml.vim
