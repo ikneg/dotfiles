@@ -10,9 +10,11 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'Shougo/neomru.vim'
 NeoBundle 't9md/vim-quickhl'
 NeoBundle 'yaml.vim'
 NeoBundle 'slim-template/vim-slim'
@@ -87,6 +89,8 @@ set laststatus=2
 set noshowmode
 set nofoldenable
 set regexpengine=1
+nnoremap <silent>bp :bprevious<CR>
+nnoremap <silent>bn :bnext<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " タブ、空白、改行の可視化
@@ -97,19 +101,16 @@ set listchars=tab:^\ ,trail:~,extends:>,precedes:<,nbsp:%
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Unite
 """"""""""""""""""""""""""""""""""""""""""""""""""
-"The prefix key.
-nnoremap    [unite]   <Nop>
-nmap    <Leader>f [unite]
-" unite.vim keymap
+call unite#custom_default_action('file', 'tabopen')
 nnoremap [unite]u  :<C-u>Unite -no-split<Space>
-nnoremap <silent> [unite]f :<C-u>Unite<Space>buffer<CR>
-nnoremap <silent> [unite]b :<C-u>Unite<Space>bookmark<CR>
-nnoremap <silent> [unite]m :<C-u>Unite<Space>file_mru<CR>
-nnoremap <silent> [unite]r :<C-u>UniteWithBufferDir file<CR>
+nnoremap <silent> ,f :<C-u>Unite<Space>buffer<CR>
+nnoremap <silent> ,b :<C-u>Unite<Space>bookmark<CR>
+nnoremap <silent> ,i :Unite<Space>outline<CR>
+nnoremap <silent> ,m :<C-u>Unite<Space>file_mru<CR>
+nnoremap <silent> ,r :<C-u>UniteWithBufferDir file<CR>
 nnoremap <silent> ,vr :UniteResume<CR>
 nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
-nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
 " unite grep に ag(The Silver Searcher) を使う
 if executable('ag')
   let g:unite_source_grep_command = 'ag'

@@ -34,3 +34,5 @@ bower.json
 # Ignore pow environment settings
 .powenv
 .netrwhist
+.vim/bundle/*
+!.vim/bundle/neobundle.vim
