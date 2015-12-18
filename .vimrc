@@ -101,16 +101,20 @@ set listchars=tab:^\ ,trail:~,extends:>,precedes:<,nbsp:%
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Unite
 """"""""""""""""""""""""""""""""""""""""""""""""""
-call unite#custom_default_action('file', 'tabopen')
 nnoremap [unite]u  :<C-u>Unite -no-split<Space>
 nnoremap <silent> ,f :<C-u>Unite<Space>buffer<CR>
 nnoremap <silent> ,b :<C-u>Unite<Space>bookmark<CR>
+nnoremap <silent> ,ni :Unite<Space>-no-quit<Space>outline<CR>
 nnoremap <silent> ,i :Unite<Space>outline<CR>
 nnoremap <silent> ,m :<C-u>Unite<Space>file_mru<CR>
 nnoremap <silent> ,r :<C-u>UniteWithBufferDir file<CR>
 nnoremap <silent> ,vr :UniteResume<CR>
 nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent> ,ng  :<C-u>Unite grep:. -buffer-name=search-buffer -no-quit<CR>
 nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+nnoremap <silent> ,ncg :<C-u>Unite grep:. -buffer-name=search-buffer -no-quit<CR><C-R><C-W>
+nnoremap <silent> <C-n> :UniteNext<CR>
+nnoremap <silent> <C-p> :UnitePrevious<CR>
 " unite grep に ag(The Silver Searcher) を使う
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
@@ -376,8 +380,3 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""
 au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
 autocmd FileType coffee setlocal sw=2 sts=2 ts=2 et
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-" coffeescript
-""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd QuickFixCmdPost *grep* cwindow
