@@ -89,8 +89,6 @@ set laststatus=2
 set noshowmode
 set nofoldenable
 set regexpengine=1
-nnoremap <silent>bp :bprevious<CR>
-nnoremap <silent>bn :bnext<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " タブ、空白、改行の可視化
