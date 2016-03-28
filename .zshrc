@@ -62,3 +62,5 @@ function peco-history-selection() {
 zle -N peco-history-selection
 bindkey '^R' peco-history-selection
 PATH="/usr/local/heroku/bin:$PATH"
+
+source /usr/bin/aws_zsh_completer.sh
