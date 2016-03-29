@@ -64,3 +64,6 @@ bindkey '^R' peco-history-selection
 PATH="/usr/local/heroku/bin:$PATH"
 
 source /usr/bin/aws_zsh_completer.sh
+
+# aws
+export AWS_REGION=ap-northeast-1
