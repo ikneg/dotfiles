@@ -8,25 +8,15 @@ set runtimepath+=~/.vim/bundle/neobundle.vim/
 call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'slim-template/vim-slim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 't9md/vim-quickhl'
 NeoBundle 'yaml.vim'
-NeoBundle 'slim-template/vim-slim'
-NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'kannokanno/previm'
-NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'jimsei/winresizer.git'
-NeoBundle 'sudo.vim'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'scrooloose/syntastic'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'Shougo/vimproc.vim', {
             \ 'build' : {
@@ -68,7 +58,6 @@ vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')<CR><C
 """"""""""""""""""""""""""""""""""""""""""""""""""
 set backspace=indent,eol,start
 set showtabline=0
-set cursorline
 hi CursorLineNr term=bold cterm=NONE ctermfg=228 ctermbg=NONE
 set ambiwidth=double
 set tabstop=4
@@ -88,7 +77,7 @@ set incsearch
 set laststatus=2
 set noshowmode
 set nofoldenable
-set regexpengine=1
+set regexpengine=0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " タブ、空白、改行の可視化
@@ -208,15 +197,6 @@ endif
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
-" global
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"map <C-g> :Gtags
-"map <C-h> :Gtags -f %<CR>
-"map <C-j> :GtagsCursor<CR>
-"map <C-n> :cn<CR>
-"map <C-p> :cp<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
 " neosnippet
 """"""""""""""""""""""""""""""""""""""""""""""""""
 let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/neosnippets/'
@@ -248,130 +228,6 @@ nmap <Space>m <Plug>(quickhl-manual-this)
 xmap <Space>m <Plug>(quickhl-manual-this)
 nmap <Space>M <Plug>(quickhl-manual-reset)
 xmap <Space>M <Plug>(quickhl-manual-reset)
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-" markdown
-""""""""""""""""""""""""""""""""""""""""""""""""""
-au BufRead,BufNewFile *.md set filetype=markdown
-"let g:previm_open_cmd = 'open -a google-chrome'
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-" syntastic
-""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-gitgutter
-""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:gitgutter_sign_added = '✚'
-let g:gitgutter_sign_modified = '➜'
-let g:gitgutter_sign_removed = '✘'
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-" lightline
-""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:unite_force_overwrite_statusline = 0
-let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'fugitive', 'gitgutter', 'dirname', 'filename' ] ],
-      \   'right': [ ['syntastic', 'lineinfo'],
-      \              ['percent'],
-      \              ['currentdirname', 'filetype'] ]
-      \ },
-      \ 'component_function': {
-      \   'modified'      : 'MyModified',
-      \   'readonly'      : 'MyReadonly',
-      \   'fugitive'      : 'MyFugitive',
-      \   'dirname'       : 'MyDirname',
-      \   'filename'      : 'MyFilename',
-      \   'filetype'      : 'MyFiletype',
-      \   'mode'          : 'MyMode',
-      \   'currentdirname': 'MyCurrentDirname',
-      \   'gitgutter'     : 'MyGitGutter',
-      \ },
-      \ 'component_expand': {
-      \   'syntastic': 'SyntasticStatuslineFlag',
-      \ },
-      \ 'component_type': {
-      \   'syntastic': 'error',
-      \ },
-      \ }
-
-function! MyModified()
-  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
-
-function! MyReadonly()
-  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? '' : ''
-endfunction
-
-function! MyFilename()
-  return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-        \  &ft == 'unite' ? unite#get_status_string() :
-        \  &ft == 'vimshell' ? vimshell#get_status_string() :
-        \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
-        \ ('' != MyModified() ? ' ' . MyModified() : '')
-endfunction
-
-function! MyFugitive()
-  if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head")
-    let _ = fugitive#head()
-    return strlen(_) ? ''._ : ''
-  endif
-  return ''
-endfunction
-
-function! MyFiletype()
-  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
-endfunction
-
-
-function! MyMode()
-  return &ft == 'unite' ? 'Unite' :
-        \ lightline#mode()
-endfunction
-
-function! MyDirname()
-  if winwidth(0) > 100
-    return expand("%:h:s?\\S$?\\0/?")
-  else
-    return ''
-  endif
-endfunction
-
-function! MyCurrentDirname()
-  if winwidth(0) > 200
-    return fnamemodify(getcwd(), ":~")
-  else
-    return ''
-  endif
-endfunction
-
-function! MyGitGutter()
-  if ! exists('*GitGutterGetHunkSummary')
-        \ || ! get(g:, 'gitgutter_enabled', 0)
-        \ || winwidth('.') <= 90
-    return ''
-  endif
-  let symbols = [
-        \ g:gitgutter_sign_added . ' ',
-        \ g:gitgutter_sign_modified . ' ',
-        \ g:gitgutter_sign_removed . ' '
-        \ ]
-  let hunks = GitGutterGetHunkSummary()
-  let ret = []
-  for i in [0, 1, 2]
-    if hunks[i] > 0
-      call add(ret, symbols[i] . hunks[i])
-    endif
-  endfor
-  return join(ret, ' ')
-endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " coffeescript
