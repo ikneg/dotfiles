@@ -7,6 +7,8 @@ set runtimepath+=~/.vim/bundle/neobundle.vim/
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
 
+NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'scrooloose/syntastic.git'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'altercation/vim-colors-solarized'
@@ -234,3 +236,10 @@ xmap <Space>M <Plug>(quickhl-manual-reset)
 """"""""""""""""""""""""""""""""""""""""""""""""""
 au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
 autocmd FileType coffee setlocal sw=2 sts=2 ts=2 et
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" airline
+""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+
