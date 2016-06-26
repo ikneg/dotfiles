@@ -20,6 +20,9 @@ NeoBundle 't9md/vim-quickhl'
 NeoBundle 'yaml.vim'
 NeoBundle 'jimsei/winresizer.git'
 NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'moll/vim-node'
+NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'Shougo/vimproc.vim', {
             \ 'build' : {
             \     'windows' : 'tools\\update-dll-mingw',
