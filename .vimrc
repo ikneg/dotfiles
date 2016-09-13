@@ -80,6 +80,7 @@ set backupdir=$HOME/.vimbackup
 set directory=$HOME/.vimbackup
 set undodir=$HOME/.vimbackup
 set encoding=utf-8
+set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
 set incsearch
 set laststatus=2
 set noshowmode
