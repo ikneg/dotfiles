@@ -13,6 +13,9 @@ rerun.txt
 pickle-email-*.html
 .vim/bundle
 Gemfile.lock
+*.key
+*.pem
+vendor/
 
 # TODO Comment out these rules if you are OK with secrets being uploaded to the repo
 config/initializers/secret_token.rb
