@@ -15,7 +15,9 @@ pickle-email-*.html
 Gemfile.lock
 *.key
 *.pem
+*.log
 vendor/
+node_modules/
 
 # TODO Comment out these rules if you are OK with secrets being uploaded to the repo
 config/initializers/secret_token.rb
