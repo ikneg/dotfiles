@@ -65,3 +65,6 @@ PATH="/usr/local/heroku/bin:$PATH"
 
 # aws
 export AWS_REGION=ap-northeast-1
+
+autoload -U colors && colors
+export PROMPT="[%n@${fg[green]}%m${reset_color}] %~ %% "

@@ -1,4 +1,5 @@
 export VTE_CJK_WIDTH=1
+export AWS_REGION=ap-northeast-1
 export RBENV_ROOT=/usr/local/rbenv
 export PATH=$RBENV_ROOT/bin:$PATH
 export GOPATH=$HOME/work/go
