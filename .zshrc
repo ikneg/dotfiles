@@ -64,7 +64,11 @@ export CC=/usr/bin/gcc
 
 # git
 setopt prompt_subst
-. /usr/share/git-core/contrib/completion/git-prompt.sh
+if [[ $USER = "pi" ]]; then
+  . /usr/lib/git-core/git-sh-prompt
+else
+  . /usr/share/git-core/contrib/completion/git-prompt.sh
+fi;
 export RPROMPT=$'$(__git_ps1 "%s")'
 
 # peco
