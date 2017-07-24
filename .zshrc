@@ -42,7 +42,7 @@ bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
 # Git settings
-export GIT_EDITOR=/usr/local/bin/vim
+export GIT_EDITOR=/usr/bin/vim
 
 # rbenv settings
 export CC=/usr/bin/gcc
