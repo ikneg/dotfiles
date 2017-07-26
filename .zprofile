@@ -28,5 +28,3 @@ case "$user" in
   ;;
 
 esac
-if [[ $user =~ "ec2-user" ]]; then
-fi
