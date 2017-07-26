@@ -16,15 +16,6 @@ case "$user" in
       echo "***************************"
   fi
   ;;
-  *vagrant* ) if [ -f /home/vagrant/.nickname.sh ]; then
-      source /home/vagrant/.nickname.sh
-  else
-      echo "***************************"
-      echo "***************************"
-      echo "Not set nickname"
-      echo "***************************"
-      echo "***************************"
-  fi
-  ;;
-
+  *vagrant* ) export NICKNAME=vagrant ;;
+  *pi* ) export NICKNAME=pi ;;
 esac
