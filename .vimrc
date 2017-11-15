@@ -7,10 +7,10 @@ set runtimepath+=~/.vim/bundle/neobundle.vim/
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
 
+NeoBundle 'slim-template/vim-slim'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'scrooloose/syntastic.git'
 NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'slim-template/vim-slim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-outline'
@@ -177,3 +177,6 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
+
+" rubyのsyntax highlightは古いregex engineを使わないと激遅になる
+set re=1
