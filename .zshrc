@@ -33,6 +33,7 @@ compinit
 # Path settings
 PATH="/usr/local/heroku/bin:$PATH"
 PATH="/usr/local/rbenv:$PATH"
+PATH="/usr/pgsql-9.6/bin:$PATH"
 
 # History settings
 autoload history-search-end
