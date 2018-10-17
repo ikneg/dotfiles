@@ -32,11 +32,8 @@ compinit
 # End of lines added by compinstall
 
 # Path settings
-#PATH="/usr/local/heroku/bin:$PATH"
-#PATH="/usr/local/rbenv:$PATH"
-#PATH="/usr/pgsql-9.6/bin:$PATH"
-export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
-export PATH="~/Library/Python/2.7/bin:$PATH"
+PATH="/usr/local/rbenv:$PATH"
+PATH="~/.local/bin:$PATH"
 
 # History settings
 autoload history-search-end
