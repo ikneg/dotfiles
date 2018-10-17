@@ -1,5 +1,5 @@
 # dir color
-# eval $(dircolors ~/.dircolors-solarized/dircolors.ansi-universal)
+eval $(dircolors ~/.dircolors-solarized/dircolors.ansi-universal)
 
 # alias
 alias vim=/usr/local/bin/vim
@@ -53,22 +53,23 @@ setopt prompt_subst
 if [[ $USER = "pi" ]]; then
   . /usr/lib/git-core/git-sh-prompt
 else
-  . /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
+  #. /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
+  . /usr/share/git-core/contrib/completion/git-prompt.sh
 fi;
 export RPROMPT=$'$(__git_ps1 "%s")'
 
 # peco
-function peco-history-selection() {
-    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
-    CURSOR=$#BUFFER
-    zle reset-prompt
-}
-
 #function peco-history-selection() {
-#  BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco`
-#  CURSOR=$#BUFFER
-#  zle reset-prompt
+#    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
+#    CURSOR=$#BUFFER
+#    zle reset-prompt
 #}
+
+function peco-history-selection() {
+  BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco`
+  CURSOR=$#BUFFER
+  zle reset-prompt
+}
 
 zle -N peco-history-selection
 bindkey '^R' peco-history-selection

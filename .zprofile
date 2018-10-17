@@ -14,8 +14,6 @@ export NODEBREW_ROOT=/usr/local/var/nodebrew
 
 export PATH=$PATH:$NODEBREW_HOME/bin
 
-eval $(gdircolors ~/.dircolors-solarized/dircolors.ansi-universal)
-alias ls='gls --color=auto'
 user=`users`
 case "$user" in
   *ec2-user* ) if [ -f /home/ec2-user/.nickname.sh ]; then
