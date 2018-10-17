@@ -19,7 +19,5 @@
     editor = usr/local/bin/vim
 [github]
     user = ikneg
-[pull]
-    rebase = true
 [push]
     default = simple
