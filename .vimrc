@@ -7,6 +7,7 @@ set runtimepath+=~/.vim/bundle/neobundle.vim/
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
 
+NeoBundle 'ngmy/vim-rubocop'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'airblade/vim-gitgutter'
@@ -85,6 +86,8 @@ set encoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
 set incsearch
 set laststatus=2
+set statusline=%f
+set statusline+=[LOW=%l/%L]
 set noshowmode
 set nofoldenable
 set regexpengine=0
@@ -172,9 +175,20 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " neosnippet
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-y>     <Plug>(neosnippet_expand_or_jump)
+smap <C-y>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-y>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
 " For conceal markers.
 if has('conceal')
   set conceallevel=2 concealcursor=niv
@@ -182,3 +196,27 @@ endif
 
 " rubyのsyntax highlightは古いregex engineを使わないと激遅になる
 set re=1
+
+" jq json
+command! -nargs=? Jq call s:Jq(<f-args>)
+function! s:Jq(...)
+    if 0 == a:0
+        let l:arg = "."
+    else
+        let l:arg = a:1
+    endif
+    execute "%! jq \"" . l:arg . "\""
+endfunction
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_ruby_checkers=['rubocop', 'mri']
+
+" gitgutter
+autocmd BufWritePost * GitGutter
