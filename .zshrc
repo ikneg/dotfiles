@@ -1,5 +1,5 @@
 # dir color
-# eval $(dircolors ~/.dircolors-solarized/dircolors.ansi-universal)
+eval $(dircolors ~/.dircolors-solarized/dircolors.ansi-universal)
 
 # alias
 alias vim=/usr/local/bin/vim
@@ -33,12 +33,11 @@ compinit
 # End of lines added by compinstall
 
 # Path settings
-#PATH="/usr/local/heroku/bin:$PATH"
-#PATH="/usr/local/rbenv:$PATH"
-#PATH="/usr/pgsql-9.6/bin:$PATH"
 export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
 export PATH="~/Library/Python/2.7/bin:$PATH"
 export PATH="/Users/gnk/Library/Android/sdk/platform-tools:$PATH"
+PATH="/usr/local/rbenv:$PATH"
+PATH="~/.local/bin:$PATH"
 
 # History settings
 autoload history-search-end
@@ -58,22 +57,23 @@ setopt prompt_subst
 if [[ $USER = "pi" ]]; then
   . /usr/lib/git-core/git-sh-prompt
 else
-  . /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
+  #. /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
+  . /usr/share/git-core/contrib/completion/git-prompt.sh
 fi;
 export RPROMPT=$'$(__git_ps1 "%s")'
 
 # peco
-function peco-history-selection() {
-    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
-    CURSOR=$#BUFFER
-    zle reset-prompt
-}
-
 #function peco-history-selection() {
-#  BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco`
-#  CURSOR=$#BUFFER
-#  zle reset-prompt
+#    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
+#    CURSOR=$#BUFFER
+#    zle reset-prompt
 #}
+
+function peco-history-selection() {
+  BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco`
+  CURSOR=$#BUFFER
+  zle reset-prompt
+}
 
 zle -N peco-history-selection
 bindkey '^R' peco-history-selection
