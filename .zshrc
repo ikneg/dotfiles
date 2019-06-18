@@ -4,6 +4,7 @@
 # alias
 alias vim=/usr/local/bin/vim
 alias vi='vim'
+alias vg='vagrant'
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
@@ -37,6 +38,7 @@ compinit
 #PATH="/usr/pgsql-9.6/bin:$PATH"
 export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
 export PATH="~/Library/Python/2.7/bin:$PATH"
+export PATH="/Users/gnk/Library/Android/sdk/platform-tools:$PATH"
 
 # History settings
 autoload history-search-end
@@ -91,3 +93,7 @@ export PATH=$PATH:$PATH/bin
 [[ -f /usr/local/var/nodebrew/node/v8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/var/nodebrew/node/v8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 
 alias updatedb='sudo /usr/libexec/locate.updatedb'
+
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /usr/local/var/nodebrew/node/v8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /usr/local/var/nodebrew/node/v8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh

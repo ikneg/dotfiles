@@ -6,6 +6,7 @@ export PATH=/usr/local/bin:$PATH
 #export GOPATH=$HOME/work/go
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+export PATH="$HOME/.pyenv/shims:$PATH"
 eval "$(rbenv init -)"
 
 NODEBREW_HOME=/usr/local/var/nodebrew/current
