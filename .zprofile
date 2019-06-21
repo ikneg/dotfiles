@@ -1,11 +1,11 @@
 export VTE_CJK_WIDTH=1
 export AWS_REGION=ap-northeast-1
 export PATH=/usr/local/bin:$PATH
-#export RBENV_ROOT=/usr/local/rbenv
-#export PATH=$RBENV_ROOT/bin:$PATH
-#export GOPATH=$HOME/work/go
-export PATH="$HOME/.rbenv/bin:$PATH"
+export RBENV_ROOT=/usr/local/rbenv
+export GOPATH=/usr/local/go
+export PATH=$RBENV_ROOT/bin:$PATH
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+export PATH=$PATH:$GOPATH/bin
 eval "$(rbenv init -)"
 
 NODEBREW_HOME=/usr/local/var/nodebrew/current
@@ -29,3 +29,6 @@ case "$user" in
   *vagrant* ) export NICKNAME=vagrant ;;
   *pi* ) export NICKNAME=pi ;;
 esac
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"

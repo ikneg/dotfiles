@@ -4,6 +4,7 @@ eval $(dircolors ~/.dircolors-solarized/dircolors.ansi-universal)
 # alias
 alias vim=/usr/local/bin/vim
 alias vi='vim'
+alias be='bundle exec'
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
@@ -33,7 +34,7 @@ compinit
 
 # Path settings
 PATH="/usr/local/rbenv:$PATH"
-PATH="~/.local/bin:$PATH"
+PATH="$HOME/.local/bin:$PATH"
 
 # History settings
 autoload history-search-end
@@ -89,3 +90,19 @@ export PATH=$PATH:$PATH/bin
 [[ -f /usr/local/var/nodebrew/node/v8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/var/nodebrew/node/v8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 
 alias updatedb='sudo /usr/libexec/locate.updatedb'
+
+export LESSCHARSET=utf-8
+
+setopt nonomatch
+
+source ~/.zsh-vimode-visual/zsh-vimode-visual.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/vagrant/google-cloud-sdk/path.zsh.inc' ]; then . '/home/vagrant/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/vagrant/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/vagrant/google-cloud-sdk/completion.zsh.inc'; fi
+
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /home/vagrant/work/bonx/bonx-io/bonx-ext-api/node_modules/tabtab/.completions/slss.zsh ]] && . /home/vagrant/work/bonx/bonx-io/bonx-ext-api/node_modules/tabtab/.completions/slss.zsh

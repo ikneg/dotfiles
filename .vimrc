@@ -37,6 +37,7 @@ NeoBundle 'Shougo/vimproc.vim', {
             \     'unix' : 'gmake',
             \    },
             \ }
+NeoBundle 'fatih/vim-go'
 
 call neobundle#end()
 
@@ -118,7 +119,7 @@ nnoremap <silent> <C-p> :UnitePrevious<CR>
 " unite grep に ag(The Silver Searcher) を使う
 if executable('hw')
   let g:unite_source_grep_command = 'hw'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_default_opts = '--no-group --no-color'
   let g:unite_source_grep_recursive_opt = ''
 endif
 
