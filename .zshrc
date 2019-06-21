@@ -5,6 +5,7 @@ eval $(dircolors ~/.dircolors-solarized/dircolors.ansi-universal)
 alias vim=/usr/local/bin/vim
 alias vi='vim'
 alias be='bundle exec'
+alias vg='vagrant'
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
@@ -33,6 +34,9 @@ compinit
 # End of lines added by compinstall
 
 # Path settings
+export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
+export PATH="~/Library/Python/2.7/bin:$PATH"
+export PATH="/Users/gnk/Library/Android/sdk/platform-tools:$PATH"
 PATH="/usr/local/rbenv:$PATH"
 PATH="$HOME/.local/bin:$PATH"
 
@@ -102,7 +106,3 @@ if [ -f '/home/vagrant/google-cloud-sdk/path.zsh.inc' ]; then . '/home/vagrant/g
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/vagrant/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/vagrant/google-cloud-sdk/completion.zsh.inc'; fi
-
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /home/vagrant/work/bonx/bonx-io/bonx-ext-api/node_modules/tabtab/.completions/slss.zsh ]] && . /home/vagrant/work/bonx/bonx-io/bonx-ext-api/node_modules/tabtab/.completions/slss.zsh
