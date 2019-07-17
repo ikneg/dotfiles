@@ -6,6 +6,7 @@ alias vim=/usr/local/bin/vim
 alias vi='vim'
 alias be='bundle exec'
 alias vg='vagrant'
+alias be='bundle exec'
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
@@ -37,8 +38,8 @@ compinit
 export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
 export PATH="~/Library/Python/2.7/bin:$PATH"
 export PATH="/Users/gnk/Library/Android/sdk/platform-tools:$PATH"
-PATH="/usr/local/rbenv:$PATH"
-PATH="$HOME/.local/bin:$PATH"
+PATH="$HOME/.rbenv/bin:$PATH"
+PATH="$HOME/local/bin:$PATH"
 
 # History settings
 autoload history-search-end

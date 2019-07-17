@@ -48,6 +48,16 @@ filetype plugin indent on
 " 毎回聞かれると邪魔な場合もあるので、この設定は任意です。
 NeoBundleCheck
 
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_ruby_checkers=['rubocop', 'mri']
+
 set t_Co=256
 set term=xterm-256color
 let g:solarized_termcolors=16
@@ -208,16 +218,6 @@ function! s:Jq(...)
     endif
     execute "%! jq \"" . l:arg . "\""
 endfunction
-
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_ruby_checkers=['rubocop', 'mri']
 
 " gitgutter
 autocmd BufWritePost * GitGutter
