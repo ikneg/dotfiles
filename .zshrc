@@ -84,16 +84,6 @@ autoload -U colors && colors
 export PROMPT="[%n@${fg[green]}%m${reset_color}] %~ %% "
 [ -f $HOME/.zshrc_${USER} ] && . $HOME/.zshrc_${USER}
 
-export GOPATH=$HOME/go
-export PATH=$PATH:$PATH/bin
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /usr/local/var/nodebrew/node/v8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/var/nodebrew/node/v8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /usr/local/var/nodebrew/node/v8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/var/nodebrew/node/v8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
-
 alias updatedb='sudo /usr/libexec/locate.updatedb'
 
 export LESSCHARSET=utf-8
@@ -101,9 +91,3 @@ export LESSCHARSET=utf-8
 setopt nonomatch
 
 source ~/.zsh-vimode-visual/zsh-vimode-visual.zsh
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/vagrant/google-cloud-sdk/path.zsh.inc' ]; then . '/home/vagrant/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/vagrant/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/vagrant/google-cloud-sdk/completion.zsh.inc'; fi
