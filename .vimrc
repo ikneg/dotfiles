@@ -7,6 +7,16 @@ set runtimepath+=~/.vim/bundle/neobundle.vim/
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
 
+NeoBundle 'psf/black'
+" black {{{
+let g:black_linelength = 79
+autocmd BufWritePre *.py execute ':Black'
+" }}}
+NeoBundle 'fisadev/vim-isort'
+" isort {{{
+let g:vim_isort_python_version = 'python3'
+autocmd BufWritePre *.py execute ':Isort'
+" }}}
 NeoBundle 'ngmy/vim-rubocop'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'slim-template/vim-slim'
