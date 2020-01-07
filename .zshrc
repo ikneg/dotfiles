@@ -2,7 +2,7 @@
 eval $(dircolors ~/.dircolors-solarized/dircolors.ansi-universal)
 
 # alias
-alias vim=/usr/local/bin/vim
+alias vim=nvim
 alias vi='vim'
 alias be='bundle exec'
 alias vg='vagrant'
@@ -49,7 +49,7 @@ bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
 # Git settings
-export GIT_EDITOR=/usr/local/bin/vim
+export GIT_EDITOR=nvim
 
 # rbenv settings
 export CC=/usr/bin/gcc
