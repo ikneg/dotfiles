@@ -6,7 +6,6 @@ alias vim=nvim
 alias vi='vim'
 alias be='bundle exec'
 alias vg='vagrant'
-alias be='bundle exec'
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
@@ -83,8 +82,6 @@ bindkey '^R' peco-history-selection
 autoload -U colors && colors
 export PROMPT="[%n@${fg[green]}%m${reset_color}] %~ %% "
 [ -f $HOME/.zshrc_${USER} ] && . $HOME/.zshrc_${USER}
-
-alias updatedb='sudo /usr/libexec/locate.updatedb'
 
 export LESSCHARSET=utf-8
 

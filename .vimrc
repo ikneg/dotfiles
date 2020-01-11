@@ -51,13 +51,6 @@ NeoBundle 'fatih/vim-go'
 
 call neobundle#end()
 
-" Required:
-filetype plugin indent on
-
-" 未インストールのプラグインがある場合、インストールするかどうかを尋ねてくれるようにする設定
-" 毎回聞かれると邪魔な場合もあるので、この設定は任意です。
-NeoBundleCheck
-
 " syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -78,7 +71,6 @@ let g:solarized_underline=1
 let g:solarized_italic=1
 let g:solarized_contrast='normal'
 let g:solarized_visibility='normal'
-syntax enable
 set background=dark
 colorscheme solarized
 
