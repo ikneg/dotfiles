@@ -11,3 +11,5 @@ rm -rf $HOME/.gitignore
 ln -sf .dotfiles/.gitignore $HOME/.gitignore
 rm -rf $HOME/.gitconfig
 ln -sf .dotfiles/.gitconfig $HOME/.gitconfig
+rm -rf $HOME/.config/nvim
+ln -sf .dotfiles/nvim $HOME/.config/nvim
