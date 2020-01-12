@@ -1,13 +1,13 @@
 #! /bin/bash
-rm $HOME/.zprofile
+rm -rf $HOME/.zprofile
 ln -sf .dotfiles/.zprofile $HOME/.zprofile
-rm $HOME/.zshrc
+rm -rf $HOME/.zshrc
 ln -sf .dotfiles/.zshrc $HOME/.zshrc
-rm $HOME/.zshenv
+rm -rf $HOME/.zshenv
 ln -sf .dotfiles/.zshenv $HOME/.zshenv
-rm $HOME/.tmux.conf
+rm -rf $HOME/.tmux.conf
 ln -sf .dotfiles/.tmux.conf $HOME/.tmux.conf
-rm $HOME/.gitignore
+rm -rf $HOME/.gitignore
 ln -sf .dotfiles/.gitignore $HOME/.gitignore
-rm $HOME/.gitconfig
+rm -rf $HOME/.gitconfig
 ln -sf .dotfiles/.gitconfig $HOME/.gitconfig
