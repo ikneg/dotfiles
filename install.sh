@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/bash -eu
 rm -rf $HOME/.zprofile
 ln -sf .dotfiles/.zprofile $HOME/.zprofile
 rm -rf $HOME/.zshrc
