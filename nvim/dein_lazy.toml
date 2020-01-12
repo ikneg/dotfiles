@@ -2,13 +2,6 @@
 repo = 'Shougo/denite.nvim'
 
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-hook_add = '''
-  let g:deoplete#enable_at_startup = 1
-  set completeopt+=noinsert
-'''
-
-[[plugins]]
 repo = 'Shougo/neosnippet.vim'
 
 [[plugins]]

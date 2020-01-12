@@ -1,5 +1,5 @@
-[user]
-    name = ikneg
+[include]
+  path = ~/.gitconfig.local
 [alias]
     st = status -sb
     di = diff
@@ -7,7 +7,7 @@
     ci = commit
     br = branch
     fixup = commit --amend -C HEAD
-    gsub = git-gsub
+    gsub = git-gsuj
 [color]
     diff = auto
     status = auto
