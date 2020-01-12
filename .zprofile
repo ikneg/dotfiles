@@ -1,5 +1,6 @@
 export PATH=/usr/local/bin:$PATH
 export XDG_CONFIG_HOME=~/.config
+export XDG_CACHE_HOME=~/.cache
 
 user=`users`
 case "$user" in

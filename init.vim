@@ -1,3 +1,6 @@
+let s:dein_config_dir = $XDG_CONFIG_HOME . '/nvim'
+let s:dein_cache_dir = $XDG_CACHE_HOME . '/dein'
+
 if &compatible
   set nocompatible               " Be iMproved
 endif
@@ -128,7 +131,7 @@ xmap <Space>M <Plug>(quickhl-manual-reset)
 
 " Define mappings
 nnoremap <silent> ,r  :Denite file/rec<CR>
-nnoremap <silent> ,vr  :Denite resume<CR>
+nnoremap <silent> ,vr  :Denite -resume<CR>
 nnoremap <silent> ,g  :Denite grep<CR>
 nnoremap <silent> ,cg :DeniteCursorWord grep<CR>
 nnoremap <silent> ,i  :Denite outline<CR>
@@ -167,3 +170,18 @@ call denite#custom#var('grep', 'default_opts', ['--follow', '--no-group', '--no-
 call denite#custom#filter('matcher/ignore_globs', 'ignore_globs',
       \ [ '.git/', '.ropeproject/', '__pycache__/',
       \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
+
+let s:denite_win_width_percent = 0.85
+let s:denite_win_height_percent = 0.7
+
+" Change denite default options
+call denite#custom#option('default', {
+    \ 'split': 'floating',
+    \ 'winwidth': float2nr(&columns * s:denite_win_width_percent),
+    \ 'wincol': float2nr((&columns - (&columns * s:denite_win_width_percent)) / 2),
+    \ 'winheight': float2nr(&lines * s:denite_win_height_percent),
+    \ 'winrow': float2nr((&lines - (&lines * s:denite_win_height_percent)) / 2),
+    \ })
+
+" gitgutter
+autocmd BufWritePost * GitGutter
