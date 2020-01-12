@@ -5,47 +5,50 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
-" Required:
-set runtimepath+=/home/vagrant/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=$XDG_CACHE_HOME/dein/repos/github.com/Shougo/dein.vim
 
-" Required:
-if dein#load_state('/home/vagrant/.cache/dein')
-  call dein#check_clean()
-  call dein#begin('/home/vagrant/.cache/dein')
+if dein#load_state(s:dein_cache_dir)
+  call dein#begin(s:dein_cache_dir)
 
-  " Let dein manage dein
-  " Required:
-  call dein#add('/home/vagrant/.cache/dein/repos/github.com/Shougo/dein.vim')
+  call dein#load_toml(s:dein_config_dir . '/dein.toml', {'lazy': 0})
+  call dein#load_toml(s:dein_config_dir . '/dein_lazy.toml', {'lazy': 1})
 
-  " Add or remove your plugins here like this:
-  call dein#add('Shougo/neosnippet.vim')
-  call dein#add('Shougo/neosnippet-snippets')
-  call dein#add('simeji/winresizer')
-  call dein#add('tpope/vim-fugitive')
-  call dein#add('altercation/vim-colors-solarized')
-  call dein#add('ryanoasis/vim-devicons')
-  call dein#add('dense-analysis/ale')
-  call dein#add('Shougo/denite.nvim')
-  call dein#add('vim-airline/vim-airline')
-  call dein#add('vim-airline/vim-airline-themes')
-  call dein#add('ngmy/vim-rubocop')
-  call dein#add('tpope/vim-rails')
-  call dein#add('slim-template/vim-slim')
-  call dein#add('airblade/vim-gitgutter')
-  call dein#add('t9md/vim-quickhl')
-  call dein#add('tpope/vim-fugitive')
-  call dein#add('Shougo/neoyank.vim')
-  call dein#add('Shougo/neomru.vim')
-  if !has('nvim')
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-  endif
-  " Required:
   call dein#end()
   call dein#save_state()
 endif
 
-" Required:
+"if dein#load_state('$HOME/.cache/dein')
+"  call dein#check_clean()
+"  call dein#begin('$HOME/.cache/dein')
+"  call dein#add('$HOME/.cache/dein/repos/github.com/Shougo/dein.vim')
+"
+"  " Add or remove your plugins here like this:
+"  call dein#add('Shougo/neosnippet.vim')
+"  call dein#add('Shougo/neosnippet-snippets')
+"  call dein#add('simeji/winresizer')
+"  call dein#add('tpope/vim-fugitive')
+"  call dein#add('altercation/vim-colors-solarized')
+"  call dein#add('ryanoasis/vim-devicons')
+"  call dein#add('dense-analysis/ale')
+"  call dein#add('Shougo/denite.nvim')
+"  call dein#add('vim-airline/vim-airline')
+"  call dein#add('vim-airline/vim-airline-themes')
+"  call dein#add('ngmy/vim-rubocop')
+"  call dein#add('tpope/vim-rails')
+"  call dein#add('slim-template/vim-slim')
+"  call dein#add('airblade/vim-gitgutter')
+"  call dein#add('t9md/vim-quickhl')
+"  call dein#add('tpope/vim-fugitive')
+"  call dein#add('Shougo/neoyank.vim')
+"  call dein#add('Shougo/neomru.vim')
+"  if !has('nvim')
+"    call dein#add('roxma/nvim-yarp')
+"    call dein#add('roxma/vim-hug-neovim-rpc')
+"  endif
+"  call dein#end()
+"  call dein#save_state()
+"endif
+
 filetype plugin indent on
 syntax enable
 
@@ -130,13 +133,14 @@ nmap <Space>M <Plug>(quickhl-manual-reset)
 xmap <Space>M <Plug>(quickhl-manual-reset)
 
 " Define mappings
-nnoremap <silent> ,r  :Denite file/rec<CR>
-nnoremap <silent> ,vr  :Denite -resume<CR>
-nnoremap <silent> ,g  :Denite grep<CR>
-nnoremap <silent> ,cg :DeniteCursorWord grep<CR>
-nnoremap <silent> ,i  :Denite outline<CR>
-nnoremap <silent> ,f  :Denite file_mru<CR>
-nnoremap <silent> ,y  :Denite neoyank<CR>
+nnoremap <silent> <space>r  :Denite file/rec<CR>
+nnoremap <silent> <space><space> :DeniteBufferDir file<CR>
+nnoremap <silent> <space>vr  :Denite -resume<CR>
+nnoremap <silent> <space>g  :Denite grep<CR>
+nnoremap <silent> <space>cg :DeniteCursorWord grep<CR>
+nnoremap <silent> <space>i  :Denite outline<CR>
+nnoremap <silent> <space>f  :Denite file_mru<CR>
+nnoremap <silent> <space>y  :Denite neoyank<CR>
 
 autocmd FileType denite call s:denite_my_settings()
 function! s:denite_my_settings() abort
