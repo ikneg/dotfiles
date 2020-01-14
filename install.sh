@@ -12,4 +12,4 @@ ln -sf $HOME/.dotfiles/.gitignore $HOME/.gitignore
 rm -rf $HOME/.gitconfig
 ln -sf $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
 rm -rf $HOME/.config/nvim
-ln -sf $HOME/.dotfiles/nvim/ $HOME/.config/nvim
+ln -sf $HOME/.dotfiles/nvim $HOME/.config/nvim

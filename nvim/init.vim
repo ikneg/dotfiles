@@ -8,7 +8,10 @@ endif
 set runtimepath+=$XDG_CACHE_HOME/dein/repos/github.com/Shougo/dein.vim
 runtime basic.vim
 
-if dein#load_state(s:dein_cache_dir)
+let s:toml = s:dein_config_dir . '/dein.toml'
+let s:toml_lazy = s:dein_config_dir . '/dein_lazy.toml'
+
+if dein#load_state(s:dein_cache_dir, s:toml, s:toml_lazy)
   call dein#begin(s:dein_cache_dir)
 
   call dein#load_toml(s:dein_config_dir . '/dein.toml', {'lazy': 0})
