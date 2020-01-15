@@ -1,9 +1,5 @@
 [[plugins]]
 repo = 'vim-airline/vim-airline'
-depends = ['/vim-airline-themes']
-
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
 hook_add = '''
   let g:airline_theme = 'wombat'
   set laststatus=2
@@ -24,6 +20,9 @@ hook_add = '''
   let g:airline_inactive_collapse = 0
   let g:airline#extensions#tagbar#enabled = 1
 '''
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
@@ -106,9 +105,7 @@ repo = 'altercation/vim-colors-solarized'
 [[plugins]]
 repo = 'dense-analysis/ale'
 hook_add = '''
-  " 保存時のみ実行する
   let g:ale_lint_on_text_changed = 0
-  " 表示に関する設定
   let g:ale_sign_error = ''
   let g:ale_sign_warning = ''
   let g:airline#extensions#ale#open_lnum_symbol = '('
@@ -116,12 +113,11 @@ hook_add = '''
   let g:ale_echo_msg_format = '[%linter%]%code: %%s'
   highlight link ALEErrorSign Tag
   highlight link ALEWarningSign StorageClass
-  " Ctrl + kで次の指摘へ、Ctrl + jで前の指摘へ移動
-  nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-  nmap <silent> <C-j> <Plug>(ale_next_wrap)
+  nmap <silent> qk <Plug>(ale_previous_wrap)
+  nmap <silent> qj <Plug>(ale_next_wrap)
   let g:ale_fixers = {
-        \ 'ruby': ['rubocop'],
-        \ }
+  \   'ruby': ['rubocop'],
+  \}
 '''
 
 [[plugins]]
@@ -148,3 +144,37 @@ repo = 'Shougo/neoyank.vim'
 
 [[plugins]]
 repo = 'Shougo/neomru.vim'
+
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+hook_add = '''
+  let g:deoplete#enable_at_startup = 1
+'''
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+hook_add = '''
+  " Plugin key-mappings.
+  " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+  imap <C-i>     <Plug>(neosnippet_expand_or_jump)
+  smap <C-i>     <Plug>(neosnippet_expand_or_jump)
+  xmap <C-i>     <Plug>(neosnippet_expand_target)
+  
+  " SuperTab like snippets behavior.
+  " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+  "imap <expr><TAB>
+  " \ pumvisible() ? "\<C-n>" :
+  " \ neosnippet#expandable_or_jumpable() ?
+  " \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+  smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+  
+  " For conceal markers.
+  if has('conceal')
+    set conceallevel=2 concealcursor=niv
+  endif
+'''
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
