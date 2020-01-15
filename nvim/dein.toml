@@ -95,12 +95,6 @@ repo = 'Shougo/neosnippet-snippets'
 on_source = ['neosnippet.vim']
 
 [[plugins]]
-repo = 'Shougo/neosnippet.vim'
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-
-[[plugins]]
 repo = 'simeji/winresizer'
 
 [[plugins]]
@@ -129,15 +123,6 @@ hook_add = '''
         \ 'ruby': ['rubocop'],
         \ }
 '''
-
-[[plugins]]
-repo = 'ngmy/vim-rubocop'
-
-[[plugins]]
-repo = 'tpope/vim-rails'
-
-[[plugins]]
-repo = 'slim-template/vim-slim'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
