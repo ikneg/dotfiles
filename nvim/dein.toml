@@ -9,12 +9,6 @@ hook_add = '''
   let g:airline#extensions#wordcount#enabled = 0
   let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'y', 'z']]
   let g:airline_powerline_fonts = 1
-  let g:airline_section_c = '%t'
-  let g:airline_section_x = '%{&filetype}'
-  let g:airline_section_z = '%3l:%2v %{airline#extensions#ale#get_warning()} %{airline#extensions#ale#get_error()}'
-  let g:airline#extensions#ale#enabled = 1
-  let g:airline#extensions#ale#error_symbol = ' '
-  let g:airline#extensions#ale#warning_symbol = ' '
   let g:airline#extensions#default#section_truncate_width = {}
   let g:airline#extensions#whitespace#enabled = 1
   let g:airline_inactive_collapse = 0
@@ -87,13 +81,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'Shougo/neosnippet.vim'
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-on_source = ['neosnippet.vim']
-
-[[plugins]]
 repo = 'simeji/winresizer'
 
 [[plugins]]
@@ -101,24 +88,6 @@ repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'altercation/vim-colors-solarized'
-
-[[plugins]]
-repo = 'dense-analysis/ale'
-hook_add = '''
-  let g:ale_lint_on_text_changed = 0
-  let g:ale_sign_error = ''
-  let g:ale_sign_warning = ''
-  let g:airline#extensions#ale#open_lnum_symbol = '('
-  let g:airline#extensions#ale#close_lnum_symbol = ')'
-  let g:ale_echo_msg_format = '[%linter%]%code: %%s'
-  highlight link ALEErrorSign Tag
-  highlight link ALEWarningSign StorageClass
-  nmap <silent> qk <Plug>(ale_previous_wrap)
-  nmap <silent> qj <Plug>(ale_next_wrap)
-  let g:ale_fixers = {
-  \   'ruby': ['rubocop'],
-  \}
-'''
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
@@ -157,16 +126,16 @@ repo = 'Shougo/neosnippet.vim'
 hook_add = '''
   " Plugin key-mappings.
   " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-  imap <C-i>     <Plug>(neosnippet_expand_or_jump)
-  smap <C-i>     <Plug>(neosnippet_expand_or_jump)
-  xmap <C-i>     <Plug>(neosnippet_expand_target)
+  imap <Space>i     <Plug>(neosnippet_expand_or_jump)
+  smap <Space>i     <Plug>(neosnippet_expand_or_jump)
+  xmap <Space>i     <Plug>(neosnippet_expand_target)
   
   " SuperTab like snippets behavior.
   " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-  "imap <expr><TAB>
-  " \ pumvisible() ? "\<C-n>" :
-  " \ neosnippet#expandable_or_jumpable() ?
-  " \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+  imap <expr><TAB>
+   \ pumvisible() ? "\<C-n>" :
+   \ neosnippet#expandable_or_jumpable() ?
+   \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
   smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
   \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
   
