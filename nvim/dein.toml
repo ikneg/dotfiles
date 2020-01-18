@@ -129,7 +129,7 @@ hook_add = '''
   imap <Space>i     <Plug>(neosnippet_expand_or_jump)
   smap <Space>i     <Plug>(neosnippet_expand_or_jump)
   xmap <Space>i     <Plug>(neosnippet_expand_target)
-  
+
   " SuperTab like snippets behavior.
   " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
   imap <expr><TAB>
@@ -138,12 +138,26 @@ hook_add = '''
    \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
   smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
   \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-  
-  " For conceal markers.
-  if has('conceal')
-    set conceallevel=2 concealcursor=niv
-  endif
 '''
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+rev = 'next'
+depends = ['deoplete.nvim']
+build = 'bash install.sh'
+hook_add = '''
+set hidden
+let g:LanguageClient_serverCommands = {
+  \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+  \ 'ruby': ['/usr/local/rbenv/shims/solargraph', 'stdio'],
+  \ }
+let g:LanguageClient_loadSettings = 1
+let g:LanguageClient_hasSnippetSupport = 0
+
+set completefunc=LanguageClient#complete
+nnoremap K :call LanguageClient#textDocument_hover()<CR>
+nnoremap F :call LanguageClient#textDocument_formatting()<CR>
+'''

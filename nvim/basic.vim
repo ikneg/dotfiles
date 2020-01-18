@@ -21,7 +21,7 @@ set noshowmode
 set nofoldenable
 set regexpengine=0
 set list
-set listchars=tab:>-,trail:.
+set listchars=tab:>-,trail:-
 set ignorecase
 set smartcase
 set wrapscan
