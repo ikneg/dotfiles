@@ -1,4 +1,6 @@
 #! /bin/bash -eu
+rm -rf $HOME/.pryrc
+ln -sf $HOME/.dotfiles/.pryrc $HOME/.pryrc
 rm -rf $HOME/.zprofile
 ln -sf $HOME/.dotfiles/.zprofile $HOME/.zprofile
 rm -rf $HOME/.zshrc

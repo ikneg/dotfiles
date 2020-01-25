@@ -1,7 +1,7 @@
 [[plugins]]
 repo = 'vim-airline/vim-airline'
 hook_add = '''
-  let g:airline_theme = 'wombat'
+  let g:airline_theme = 'solarized'
   set laststatus=2
   let g:airline#extensions#branch#enabled = 1
   let g:airline#extensions#tabline#enabled = 1
@@ -25,14 +25,14 @@ repo = 'ryanoasis/vim-devicons'
 repo = 'Shougo/denite.nvim'
 hook_add = '''
   " Define mappings
-  nnoremap <silent> <space>r  :Denite file/rec<CR>
-  nnoremap <silent> <space><space> :DeniteBufferDir file<CR>
-  nnoremap <silent> <space>vr  :Denite -resume<CR>
-  nnoremap <silent> <space>g  :Denite grep<CR>
-  nnoremap <silent> <space>cg :DeniteCursorWord grep<CR>
-  nnoremap <silent> <space>i  :Denite outline<CR>
-  nnoremap <silent> <space>f  :Denite file_mru<CR>
-  nnoremap <silent> <space>y  :Denite neoyank<CR>
+  nnoremap <silent> <Leader>r  :Denite file/rec<CR>
+  nnoremap <silent> <Leader><Leader> :DeniteBufferDir file<CR>
+  nnoremap <silent> <Leader>vr  :Denite -resume<CR>
+  nnoremap <silent> <Leader>g  :Denite grep<CR>
+  nnoremap <silent> <Leader>cg :DeniteCursorWord grep<CR>
+  nnoremap <silent> <Leader>i  :Denite outline<CR>
+  nnoremap <silent> <Leader>f  :Denite file_mru<CR>
+  nnoremap <silent> <Leader>y  :Denite neoyank<CR>
   
   autocmd FileType denite call s:denite_my_settings()
   function! s:denite_my_settings() abort
@@ -99,10 +99,10 @@ hook_add = '''
 repo = 't9md/vim-quickhl'
 hook_add = '''
   let g:quickhl_manual_enable_at_startup=1
-  nmap <Space>m <Plug>(quickhl-manual-this)
-  xmap <Space>m <Plug>(quickhl-manual-this)
-  nmap <Space>M <Plug>(quickhl-manual-reset)
-  xmap <Space>M <Plug>(quickhl-manual-reset)
+  nmap <Leader>m <Plug>(quickhl-manual-this)
+  xmap <Leader>m <Plug>(quickhl-manual-this)
+  nmap <Leader>M <Plug>(quickhl-manual-reset)
+  xmap <Leader>M <Plug>(quickhl-manual-reset)
 '''
 
 [[plugins]]
@@ -126,9 +126,9 @@ repo = 'Shougo/neosnippet.vim'
 hook_add = '''
   " Plugin key-mappings.
   " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-  imap <Space>i     <Plug>(neosnippet_expand_or_jump)
-  smap <Space>i     <Plug>(neosnippet_expand_or_jump)
-  xmap <Space>i     <Plug>(neosnippet_expand_target)
+  imap <Leader>i     <Plug>(neosnippet_expand_or_jump)
+  smap <Leader>i     <Plug>(neosnippet_expand_or_jump)
+  xmap <Leader>i     <Plug>(neosnippet_expand_target)
 
   " SuperTab like snippets behavior.
   " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
@@ -149,15 +149,26 @@ rev = 'next'
 depends = ['deoplete.nvim']
 build = 'bash install.sh'
 hook_add = '''
+" Required for operations modifying multiple buffers like rename.
 set hidden
-let g:LanguageClient_serverCommands = {
-  \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-  \ 'ruby': ['/usr/local/rbenv/shims/solargraph', 'stdio'],
-  \ }
-let g:LanguageClient_loadSettings = 1
-let g:LanguageClient_hasSnippetSupport = 0
 
-set completefunc=LanguageClient#complete
-nnoremap K :call LanguageClient#textDocument_hover()<CR>
-nnoremap F :call LanguageClient#textDocument_formatting()<CR>
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+    \ 'python': ['/usr/local/bin/pyls'],
+    \ 'ruby': ['/usr/local/rbenv/shims/solargraph', 'stdio'],
+    \ }
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
+nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
+nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
+nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
+nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
+nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
+nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
+nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
+nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
+nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
 '''

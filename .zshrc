@@ -39,6 +39,7 @@ export PATH="~/Library/Python/2.7/bin:$PATH"
 export PATH="/Users/gnk/Library/Android/sdk/platform-tools:$PATH"
 PATH="$HOME/.rbenv/bin:$PATH"
 PATH="$HOME/local/bin:$PATH"
+PATH="$HOME/.local/bin:$PATH"
 
 # History settings
 autoload history-search-end
@@ -88,3 +89,5 @@ export LESSCHARSET=utf-8
 setopt nonomatch
 
 source ~/.zsh-vimode-visual/zsh-vimode-visual.zsh
+
+export GO111MODULE=on
