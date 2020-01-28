@@ -1,7 +1,7 @@
 [[plugins]]
 repo = 'vim-airline/vim-airline'
 hook_add = '''
-  let g:airline_theme = 'solarized'
+  let g:airline_theme = 'wombat'
   set laststatus=2
   let g:airline#extensions#branch#enabled = 1
   let g:airline#extensions#tabline#enabled = 1
@@ -33,7 +33,7 @@ hook_add = '''
   nnoremap <silent> <Leader>i  :Denite outline<CR>
   nnoremap <silent> <Leader>f  :Denite file_mru<CR>
   nnoremap <silent> <Leader>y  :Denite neoyank<CR>
-  
+
   autocmd FileType denite call s:denite_my_settings()
   function! s:denite_my_settings() abort
     nnoremap <silent><buffer><expr> <CR>
@@ -47,12 +47,12 @@ hook_add = '''
     nnoremap <silent><buffer><expr> u
     \ denite#do_map('move_up_path')
   endfunction
-  
+
   autocmd FileType denite-filter call s:denite_filter_my_settings()
   function! s:denite_filter_my_settings() abort
     imap <silent><buffer> <C-o> <Plug>(denite_filter_quit)
   endfunction
-  
+
   " Change file/rec command.
   call denite#custom#var('file/rec', 'command',
   \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
@@ -61,15 +61,15 @@ hook_add = '''
   call denite#custom#var('grep', 'recursive_opts', [])
   call denite#custom#var('grep', 'pattern_opt', [])
   call denite#custom#var('grep', 'default_opts', ['--follow', '--no-group', '--no-color'])
-  
+
   " Change ignore_globs
   call denite#custom#filter('matcher/ignore_globs', 'ignore_globs',
         \ [ '.git/', '.ropeproject/', '__pycache__/',
         \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
-  
+
   let s:denite_win_width_percent = 0.85
   let s:denite_win_height_percent = 0.7
-  
+
   " Change denite default options
   call denite#custom#option('default', {
       \ 'split': 'floating',
@@ -141,6 +141,14 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'Shougo/echodoc'
+hook_add = '''
+set cmdheight=2
+let g:echodoc#enable_at_startup = 1
+let g:echodoc#type = 'signature'
+'''
+
+[[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
@@ -160,15 +168,18 @@ let g:LanguageClient_serverCommands = {
     \ 'ruby': ['/usr/local/rbenv/shims/solargraph', 'stdio'],
     \ }
 
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
 nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
 nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
 nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
 nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
-nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
+nnoremap <leader>la :call LanguageClient#textDocument_codeAction()<CR>
 nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
 nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
 nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
 nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
+
+autocmd BufWritePost * :call LanguageClient#textDocument_formatting()
+
+set signcolumn=yes
 '''

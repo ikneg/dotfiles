@@ -43,3 +43,7 @@ bower.json
 .netrwhist
 .vim/bundle/*
 !.vim/bundle/neobundle.vim
+
+# rust
+/target/
+**/*.rs.bk

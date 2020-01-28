@@ -28,3 +28,4 @@ set wrapscan
 set incsearch
 set inccommand=split
 let mapleader = "\<Space>"
+set completeopt-=preview
