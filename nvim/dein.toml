@@ -84,9 +84,6 @@ hook_add = '''
 repo = 'simeji/winresizer'
 
 [[plugins]]
-repo = 'tpope/vim-fugitive'
-
-[[plugins]]
 repo = 'altercation/vim-colors-solarized'
 
 [[plugins]]
@@ -141,15 +138,15 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
 repo = 'Shougo/echodoc'
 hook_add = '''
 set cmdheight=2
 let g:echodoc#enable_at_startup = 1
 let g:echodoc#type = 'signature'
 '''
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'

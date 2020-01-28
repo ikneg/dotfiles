@@ -27,5 +27,5 @@ set smartcase
 set wrapscan
 set incsearch
 set inccommand=split
-let mapleader = "\<Space>"
+let mapleader = ","
 set completeopt-=preview
