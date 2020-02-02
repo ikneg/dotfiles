@@ -121,6 +121,8 @@ hook_add = '''
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
 hook_add = '''
+  let g:neosnippet#enable_complete_done = 1
+
   " Plugin key-mappings.
   " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
   imap <Leader>i     <Plug>(neosnippet_expand_or_jump)
