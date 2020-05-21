@@ -87,6 +87,9 @@ repo = 'simeji/winresizer'
 repo = 'altercation/vim-colors-solarized'
 
 [[plugins]]
+repo = 'iCyMind/NeoSolarized'
+
+[[plugins]]
 repo = 'airblade/vim-gitgutter'
 hook_add = '''
   autocmd BufWritePost * GitGutter
@@ -181,4 +184,14 @@ nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
 autocmd BufWritePost * :call LanguageClient#textDocument_formatting()
 
 set signcolumn=yes
+'''
+
+[[plugins]]
+repo = 'inkarkat/vim-SyntaxRange'
+
+[[plugins]]
+repo = 'kannokanno/previm'
+hook_add = '''
+let g:previm_open_cmd = '/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe'
+let g:previm_wsl_mode = 1
 '''

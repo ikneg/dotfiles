@@ -10,7 +10,7 @@ set shiftround
 set splitright
 set hlsearch
 set nowrap
-set nonumber
+set number
 set backupdir=$HOME/.vimbackup
 set directory=$HOME/.vimbackup
 set undodir=$HOME/.vimbackup
