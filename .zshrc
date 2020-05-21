@@ -37,7 +37,6 @@ compinit
 export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
 export PATH="~/Library/Python/2.7/bin:$PATH"
 export PATH="/Users/gnk/Library/Android/sdk/platform-tools:$PATH"
-PATH="$HOME/.rbenv/bin:$PATH"
 PATH="$HOME/local/bin:$PATH"
 PATH="$HOME/.local/bin:$PATH"
 
@@ -60,7 +59,7 @@ if [[ $USER = "pi" ]]; then
   . /usr/lib/git-core/git-sh-prompt
 else
   #. /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
-  . /usr/share/git-core/contrib/completion/git-prompt.sh
+  . /etc/bash_completion.d/git-prompt
 fi;
 export RPROMPT=$'$(__git_ps1 "%s")'
 
@@ -91,3 +90,6 @@ setopt nonomatch
 source ~/.zsh-vimode-visual/zsh-vimode-visual.zsh
 
 export GO111MODULE=on
+export PATH="$HOME/.anyenv/bin:$PATH"
+
+eval "$(anyenv init -)"
