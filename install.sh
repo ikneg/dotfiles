@@ -9,6 +9,8 @@ rm -rf $HOME/.zshenv
 ln -sf $HOME/.dotfiles/.zshenv $HOME/.zshenv
 rm -rf $HOME/.tmux.conf
 ln -sf $HOME/.dotfiles/.tmux.conf $HOME/.tmux.conf
+rm -rf $HOME/.agignore
+ln -sf $HOME/.dotfiles/.agignore $HOME/.agignore
 rm -rf $HOME/.gitignore
 ln -sf $HOME/.dotfiles/.gitignore $HOME/.gitignore
 rm -rf $HOME/.gitconfig
