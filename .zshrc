@@ -5,6 +5,7 @@ eval $(dircolors ~/.dircolors-solarized/dircolors.ansi-universal)
 alias vim=nvim
 alias vi='vim'
 alias be='bundle exec'
+alias dc='docker-compose'
 alias vg='vagrant'
 
 # Lines configured by zsh-newuser-install
@@ -80,7 +81,7 @@ zle -N peco-history-selection
 bindkey '^R' peco-history-selection
 
 autoload -U colors && colors
-export PROMPT="[%n@${fg[green]}%m${reset_color}] %~ %% "
+export PROMPT="%~ %% "
 [ -f $HOME/.zshrc_${USER} ] && . $HOME/.zshrc_${USER}
 
 export LESSCHARSET=utf-8
@@ -89,7 +90,9 @@ setopt nonomatch
 
 source ~/.zsh-vimode-visual/zsh-vimode-visual.zsh
 
-export GO111MODULE=on
 export PATH="$HOME/.anyenv/bin:$PATH"
 
 eval "$(anyenv init -)"
+
+export DISPLAY=localhost:0.0
+export LIBGL_ALWAYS_INDIRECT=1

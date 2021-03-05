@@ -1,6 +1,7 @@
 #! /bin/bash -eu
 rm -rf $HOME/.pryrc
-ln -sf $HOME/.dotfiles/.pryrc $HOME/.pryrc
+mkdir ~/.config/pry
+ln -sf $HOME/.dotfiles/.pryrc ~/.config/pry/.pryrc
 rm -rf $HOME/.zprofile
 ln -sf $HOME/.dotfiles/.zprofile $HOME/.zprofile
 rm -rf $HOME/.zshrc

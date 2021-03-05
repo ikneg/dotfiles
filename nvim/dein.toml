@@ -181,13 +181,16 @@ nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
 nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
 nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
 
-autocmd BufWritePre * :call LanguageClient#textDocument_formatting_sync()
+autocmd BufWritePre *.rb,*.c,*.js,*.py :call LanguageClient#textDocument_formatting_sync()
 
 set signcolumn=yes
 '''
 
 [[plugins]]
 repo = 'inkarkat/vim-SyntaxRange'
+
+[[plugins]]
+repo = 'stephpy/vim-yaml'
 
 [[plugins]]
 repo = 'kannokanno/previm'

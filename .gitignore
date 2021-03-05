@@ -12,8 +12,6 @@ capybara-*.html
 rerun.txt
 pickle-email-*.html
 .vim/bundle
-Gemfile.lock
-*.key
 *.pem
 *.log
 vendor/

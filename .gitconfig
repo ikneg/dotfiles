@@ -16,6 +16,7 @@
     excludesfile = ~/.gitignore
     mergeoptions = --no-ff --no-commit
     editor = nvim
+	autocrlf = input
 [github]
     user = ikneg
 [push]
